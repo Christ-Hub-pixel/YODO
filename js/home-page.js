@@ -25,12 +25,35 @@ if (turntable && model) {
   });
   turntable.addEventListener("pointerup", () => { pointerStart = null; });
   turntable.addEventListener("pointercancel", () => { pointerStart = null; });
-  document.querySelector("#rotate-left")?.addEventListener("click", () => setAngle(angle - 35));
-  document.querySelector("#rotate-right")?.addEventListener("click", () => setAngle(angle + 35));
+  document.querySelector("#rotate-left")?.addEventListener("click", () => {
+    setAngle(angle - 35);
+    heroStage?.dispatchEvent(
+      new CustomEvent("yodo:rotate", {
+        detail: { direction: -1, degrees: -35 },
+        bubbles: true,
+      })
+    );
+  });
+  document.querySelector("#rotate-right")?.addEventListener("click", () => {
+    setAngle(angle + 35);
+    heroStage?.dispatchEvent(
+      new CustomEvent("yodo:rotate", {
+        detail: { direction: 1, degrees: 35 },
+        bubbles: true,
+      })
+    );
+  });
   document.querySelectorAll("[data-zoom]").forEach((button) => {
     button.addEventListener("click", () => {
-      zoom = Math.min(1.3, Math.max(0.75, zoom + (button.dataset.zoom === "in" ? 0.1 : -0.1)));
+      const isZoomIn = button.dataset.zoom === "in";
+      zoom = Math.min(1.3, Math.max(0.75, zoom + (isZoomIn ? 0.1 : -0.1)));
       renderModel();
+      heroStage?.dispatchEvent(
+        new CustomEvent("yodo:zoom", {
+          detail: { delta: isZoomIn ? 0.35 : -0.35 },
+          bubbles: true,
+        })
+      );
     });
   });
 
