@@ -1,0 +1,45 @@
+--- a/js/three-scene.js
++++ b/js/three-scene.js
+@@ -414,14 +414,18 @@ function createStreetwearGarment() {
+   const frontDecal = new THREE.Mesh(
+     new THREE.PlaneGeometry(0.18, 0.09),
+     new THREE.MeshBasicMaterial({
+       map: frontDecalMap,
+       transparent: true,
+-      opacity: 0.94,
+-      depthWrite: false
++      opacity: 0.94,
++      depthWrite: false,
++      polygonOffset: true,
++      polygonOffsetFactor: -1.0,
++      polygonOffsetUnits: -1.0
+     })
+   );
+-  frontDecal.position.set(-0.16, 1.70, 0.332);
+-  frontDecal.rotation.y = 0.12;
++  frontDecal.position.set(-0.16, 1.70, 0.352);
++  frontDecal.rotation.y = -0.21;
++  frontDecal.renderOrder = 2;
+   root.add(frontDecal);
+ 
+   const backDecal = new THREE.Mesh(
+@@ -429,12 +433,16 @@ function createStreetwearGarment() {
+     new THREE.MeshBasicMaterial({
+       map: backDecalMap,
+       transparent: true,
+-      opacity: 0.90,
+-      depthWrite: false
++      opacity: 0.90,
++      depthWrite: false,
++      polygonOffset: true,
++      polygonOffsetFactor: -1.0,
++      polygonOffsetUnits: -1.0
+     })
+   );
+-  backDecal.position.set(0, 1.62, -0.332);
++  backDecal.position.set(0, 1.62, -0.370);
+   backDecal.rotation.y = Math.PI;
++  backDecal.renderOrder = 2;
+   root.add(backDecal);
+ 
+   // ----------------------------------------------------

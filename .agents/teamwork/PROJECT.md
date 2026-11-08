@@ -26,9 +26,9 @@
 | 9 | Zero 404s & Clean Console | Ensure zero missing asset 404 network requests and zero WebGL errors or warnings. | M1 | Survey (Explorer 1, 2, 3) |
 
 ## Milestones
-| # | Name | Scope | Dependencies | Status |
-|---|------|-------|-------------|--------|
-| 1 | Hero 3D Streetwear Visual, Studio Lighting & UI Integration | Features 1 through 9: Cleanse demo text in `index.html`, replace primitive mannequin code with high-end 3D streetwear centerpiece in `js/three-scene.js`, studio lighting & shadows, PBR cloth materials, responsive camera framing, and UI button wiring in `js/home-page.js`. | none | IN_PROGRESS |
+| # | Name | Scope | Dependencies | Status | Outputs |
+|---|------|-------|-------------|--------|---------|
+| 1 | Hero 3D Streetwear Visual, Studio Lighting & UI Integration | Features 1 through 9: Cleanse demo text in `index.html`, replace primitive mannequin code with high-end 3D streetwear centerpiece in `js/three-scene.js`, studio lighting & shadows, PBR cloth materials, responsive camera framing, and UI button wiring in `js/home-page.js`. | none | DONE | `index.html`, `js/three-scene.js`, `js/home-page.js` verified (35/35 spatial checks pass, 29/29 HTTP 200, 0 404s, 0 WebGL warnings, dual Reviewer APPROVE, dual Challenger APPROVE, Auditor CLEAN) |
 
 ## Interface Contracts
 ### `index.html` ↔ `js/three-scene.js`

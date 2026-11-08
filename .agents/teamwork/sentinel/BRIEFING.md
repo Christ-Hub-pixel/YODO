@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-08T18:17:15Z
+# BRIEFING — 2026-11-08T19:45:30Z
 
 ## Mission
 Coordinate and monitor the task execution for replacing the 3D visual in the hero scene.
@@ -29,13 +29,15 @@ Coordinate and monitor the task execution for replacing the 3D visual in the her
 - **Delivered results**: [none]
 
 ## Project Status
-- **Phase**: in progress
+- **Phase**: in progress (rework after VICTORY REJECTED)
 
 ## Victory Audit Status
-- **Auditor**: [to be spawned on victory claim]
-- **Triggered**: no
-- **Verdict**: pending
-- **Retry count**: 0
+- **Auditor**: 8fe1867b-b89e-4d54-bbe3-9d2da4a61835 (retired)
+- **Triggered**: yes
+- **Verdict**: VICTORY REJECTED
+- **Retry count**: 1
 
 ## Artifact Index
 - .agents/teamwork/ORIGINAL_REQUEST.md — Authoritative user request
+- .agents/teamwork/orchestrator/handoff.md — Orchestrator report
+- .agents/teamwork/victory_auditor/handoff.md — Victory Auditor rejection report

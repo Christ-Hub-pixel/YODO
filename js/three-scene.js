@@ -264,7 +264,8 @@ function createStreetwearGarment() {
   const innerLiningMaterial = new THREE.MeshStandardMaterial({
     color: 0x0f0f10,
     roughness: 0.92,
-    metalness: 0.0
+    metalness: 0.0,
+    side: THREE.DoubleSide
   });
 
   // ----------------------------------------------------
@@ -417,11 +418,15 @@ function createStreetwearGarment() {
       map: frontDecalMap,
       transparent: true,
       opacity: 0.94,
-      depthWrite: false
+      depthWrite: false,
+      polygonOffset: true,
+      polygonOffsetFactor: -1.0,
+      polygonOffsetUnits: -1.0
     })
   );
-  frontDecal.position.set(-0.16, 1.70, 0.332);
-  frontDecal.rotation.y = 0.12;
+  frontDecal.position.set(-0.16, 1.70, 0.352);
+  frontDecal.rotation.y = -0.21;
+  frontDecal.renderOrder = 2;
   root.add(frontDecal);
 
   const backDecal = new THREE.Mesh(
@@ -430,11 +435,15 @@ function createStreetwearGarment() {
       map: backDecalMap,
       transparent: true,
       opacity: 0.90,
-      depthWrite: false
+      depthWrite: false,
+      polygonOffset: true,
+      polygonOffsetFactor: -1.0,
+      polygonOffsetUnits: -1.0
     })
   );
-  backDecal.position.set(0, 1.62, -0.332);
+  backDecal.position.set(0, 1.62, -0.370);
   backDecal.rotation.y = Math.PI;
+  backDecal.renderOrder = 2;
   root.add(backDecal);
 
   // ----------------------------------------------------
@@ -530,10 +539,10 @@ function createStreetwearGarment() {
 
   const leftCordCurve = new THREE.CatmullRomCurve3([
     new THREE.Vector3(-0.085, 1.94, 0.26),
-    new THREE.Vector3(-0.11, 1.78, 0.32),
-    new THREE.Vector3(-0.13, 1.58, 0.35),
-    new THREE.Vector3(-0.10, 1.42, 0.34),
-    new THREE.Vector3(-0.12, 1.28, 0.32)
+    new THREE.Vector3(-0.11, 1.78, 0.375),
+    new THREE.Vector3(-0.13, 1.58, 0.370),
+    new THREE.Vector3(-0.10, 1.42, 0.375),
+    new THREE.Vector3(-0.12, 1.28, 0.405)
   ]);
   const leftCord = new THREE.Mesh(
     new THREE.TubeGeometry(leftCordCurve, 32, 0.010, 12, false),
@@ -544,10 +553,10 @@ function createStreetwearGarment() {
 
   const rightCordCurve = new THREE.CatmullRomCurve3([
     new THREE.Vector3(0.085, 1.94, 0.26),
-    new THREE.Vector3(0.11, 1.76, 0.32),
-    new THREE.Vector3(0.14, 1.56, 0.35),
-    new THREE.Vector3(0.12, 1.40, 0.34),
-    new THREE.Vector3(0.13, 1.24, 0.32)
+    new THREE.Vector3(0.11, 1.76, 0.375),
+    new THREE.Vector3(0.14, 1.56, 0.370),
+    new THREE.Vector3(0.12, 1.40, 0.375),
+    new THREE.Vector3(0.13, 1.24, 0.405)
   ]);
   const rightCord = new THREE.Mesh(
     new THREE.TubeGeometry(rightCordCurve, 32, 0.010, 12, false),
@@ -560,7 +569,7 @@ function createStreetwearGarment() {
     new THREE.CylinderGeometry(0.013, 0.013, 0.065, 16),
     metallicHardwareMaterial
   );
-  leftAglet.position.set(-0.12, 1.25, 0.32);
+  leftAglet.position.set(-0.12, 1.25, 0.405);
   leftAglet.rotation.z = 0.12;
   root.add(leftAglet);
 
@@ -568,7 +577,7 @@ function createStreetwearGarment() {
     new THREE.CylinderGeometry(0.013, 0.013, 0.065, 16),
     metallicHardwareMaterial
   );
-  rightAglet.position.set(0.13, 1.21, 0.32);
+  rightAglet.position.set(0.13, 1.21, 0.405);
   rightAglet.rotation.z = -0.10;
   root.add(rightAglet);
 

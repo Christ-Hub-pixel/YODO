@@ -63,22 +63,32 @@ Remplacer les mannequins 3D rudimentaires actuels dans le hero de la page d'accu
 | Challenger 1 (M1) | teamwork_challenger | Responsive Stress Test | completed (APPROVE) | a12927dd-0315-46a0-877f-a22b3cec0540 |
 | Challenger 2 (M1) | teamwork_challenger | Interactions & 404 Audit | completed (APPROVE) | a78e895d-cacc-4c23-ac09-33af0ba2669e |
 | Forensic Auditor (M1) | teamwork_auditor | Integrity Forensics | completed (CLEAN) | 0f2a9dd8-e9fa-45a6-8e6b-399475f2a74c |
-| Explorer 1 (M1-R2) | teamwork_explorer | Decals Clearance Strategy | in-progress | 74c81162-b270-4427-9655-6a68f9bc0a65 |
-| Explorer 2 (M1-R2) | teamwork_explorer | Hardware & Lining Strategy | in-progress | 611063c5-e846-4e47-b18b-ac250efe58ab |
-| Explorer 3 (M1-R2) | teamwork_explorer | 3D Geometry Verification Suite | in-progress | 443a99a9-89ad-4e99-a73e-432501651fd2 |
+| Explorer 1 (M1-R2) | teamwork_explorer | Decals Clearance Strategy | completed | 74c81162-b270-4427-9655-6a68f9bc0a65 |
+| Explorer 2 (M1-R2) | teamwork_explorer | Hardware & Lining Strategy | completed | 611063c5-e846-4e47-b18b-ac250efe58ab |
+| Explorer 3 (M1-R2) | teamwork_explorer | 3D Geometry Verification Suite | completed | 443a99a9-89ad-4e99-a73e-432501651fd2 |
+| Worker (M1-R2) | teamwork_worker | 3D Geometry Remediation | completed | ad04eca6-09cc-4c48-9d91-61d64f7ba9e0 |
+
+| Reviewer 1 (M1-R2) | teamwork_reviewer | HTML & UI Review | completed (APPROVE) | 87c46dd1-c92c-4f90-8d8a-1ba5aa346a6b |
+| Reviewer 2 (M1-R2) | teamwork_reviewer | 3D Geometry Review | completed (APPROVE) | 1b8f2790-f962-4e28-bdcc-6ba04d96b831 |
+| Challenger 1 (M1-R2) | teamwork_challenger | Responsive Regression Test | completed (APPROVE) | d030aab9-5b73-45c1-8eb8-6f33bc1517d6 |
+| Challenger 2 (M1-R2) | teamwork_challenger | 360 Visibility & 404 Audit | completed (APPROVE) | 7d2fdd7e-0d98-4ec7-9a47-e22d1253b61b |
+| Forensic Auditor (M1-R2) | teamwork_auditor | Remediation Forensics | completed (CLEAN) | 4e2df5d0-2d4a-4c44-aae6-d75fbabc7e26 |
+| Explorer 1 (M1-R3) | teamwork_explorer | Terminology Remediation | in-progress | 5910e793-c8f8-4d6c-a035-9cfd7dcbfd6b |
+| Explorer 2 (M1-R3) | teamwork_explorer | Test Alignment & Repair | in-progress | 7cafda18-06d4-4e80-94cd-f0624824bcfc |
+| Explorer 3 (M1-R3) | teamwork_explorer | Git & Regression Plan | in-progress | 566ad57f-056b-4ce0-9ae9-fd6c60596669 |
 
 ## Succession Status
 - Succession required: no
-- Spawn count: 15 / 16
-- Pending subagents: 74c81162-b270-4427-9655-6a68f9bc0a65, 611063c5-e846-4e47-b18b-ac250efe58ab, 443a99a9-89ad-4e99-a73e-432501651fd2
+- Spawn count: 24 / 128
+- Pending subagents: 5910e793-c8f8-4d6c-a035-9cfd7dcbfd6b, 7cafda18-06d4-4e80-94cd-f0624824bcfc, 566ad57f-056b-4ce0-9ae9-fd6c60596669
 - Predecessor: none
-- Successor spawned: not yet spawned
+- Successor spawned: not applicable
 - Successor generation: none
 - Successor state folder: none
 
 ## Active Timers
-- Heartbeat cron: 640a132e-28bd-49c1-b3f0-5d19a411bda5/task-22
-- Safety timer: 640a132e-28bd-49c1-b3f0-5d19a411bda5/task-283
+- Heartbeat cron: 640a132e-28bd-49c1-b3f0-5d19a411bda5/task-488
+- Safety timer: 640a132e-28bd-49c1-b3f0-5d19a411bda5/task-504
 - On succession: kill all timers before spawning successor
 - On context truncation: handle timers as step 4 of the State Recovery section of your prompt says
 
