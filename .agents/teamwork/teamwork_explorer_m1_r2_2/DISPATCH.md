@@ -1,21 +1,24 @@
-# Task Assignment: Explorer 2 (Iteration 2 - Drawstrings, Aglets & Hood Lining Fix Strategy)
+## 2026-11-08T19:01:28Z
+Sender: 640a132e-28bd-49c1-b3f0-5d19a411bda5
+Message:
+You are Explorer 2 formulating the Drawstrings, Aglets & Hood Lining fix strategy for Iteration 2.
 
 Working directory: /home/christ77/Documents/YODO
-State folder: /home/christ77/Documents/YODO/.agents/teamwork/teamwork_explorer_m1_r2_2
+Your state folder: /home/christ77/Documents/YODO/.agents/teamwork/teamwork_explorer_m1_r2_2
 Original request file: /home/christ77/Documents/YODO/.agents/teamwork/ORIGINAL_REQUEST.md
 Scope document: /home/christ77/Documents/YODO/.agents/teamwork/PROJECT.md
 Reviewer 2 failure report: /home/christ77/Documents/YODO/.agents/teamwork/teamwork_reviewer_m1_2/handoff.md
 Geometry audit tool: /home/christ77/Documents/YODO/.agents/teamwork/teamwork_reviewer_m1_2/geometry_audit.py
 
-## Objective
-Read ORIGINAL_REQUEST.md, PROJECT.md, and Reviewer 2's handoff report.
-Iteration 1 Gate failed on 3D spatial clearance defects.
-Your task: Formulate the exact fix strategy and code diffs for Drawstrings, Aglets, and Hood Lining in `js/three-scene.js`:
-1. Drawstrings & Metallic Aglets:
-   - Adjust Catmull-Rom cord control points (`leftCordCurve`, `rightCordCurve`) so they drape smoothly over the chest ($z \ge 0.370$) and kangaroo pocket ($z \ge 0.405$), eliminating any chest penetration.
-   - Position `leftAglet` and `rightAglet` outside the kangaroo pocket wall ($z = 0.405$), fully visible in front of the pocket.
-2. Hood Inner Lining:
-   - Configure `innerLiningMaterial` with `side: THREE.BackSide` (or `THREE.DoubleSide`) in `js/three-scene.js:264-268` so the inner sphere dome renders properly and is not backface culled when looking into the hood.
+Read /home/christ77/Documents/YODO/.agents/teamwork/ORIGINAL_REQUEST.md, /home/christ77/Documents/YODO/.agents/teamwork/PROJECT.md, Reviewer 2's handoff report, and /home/christ77/Documents/YODO/.agents/teamwork/teamwork_explorer_m1_r2_2/DISPATCH.md before starting work.
 
-Write your full findings and code blueprint to `/home/christ77/Documents/YODO/.agents/teamwork/teamwork_explorer_m1_r2_2/handoff.md`.
+Your task:
+Formulate exact code diffs and positioning for Drawstrings, Metallic Aglets, and Hood Inner Lining in `js/three-scene.js`:
+1. Reposition Catmull-Rom cord control points to drape outside chest and kangaroo pocket.
+2. Reposition `leftAglet` and `rightAglet` outside the kangaroo pocket ($z = 0.405$), fully visible.
+3. Configure `innerLiningMaterial` with `side: THREE.BackSide` (or `THREE.DoubleSide`) so the hood interior renders properly.
+
+Write your report to:
+`/home/christ77/Documents/YODO/.agents/teamwork/teamwork_explorer_m1_r2_2/handoff.md`
+Update progress.md in your state folder.
 Send a message when done with summary and report path.
