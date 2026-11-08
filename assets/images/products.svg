@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="hoodie-art" viewBox="0 0 440 500">
+    <path d="M138 108 84 135 28 283l69 31 34-65v185h145V249l34 65 69-31-56-148-54-27-49-20h-34z" fill="currentColor"/>
+    <path d="M154 104c3-42 28-68 66-68s63 26 66 68l-32 31h-68z" fill="currentColor"/>
+    <path d="M177 104c5-25 20-40 43-40s38 15 43 40l-22 20h-42z" fill="#111" opacity=".22"/>
+    <path d="m190 109 11 67m49-67-11 67" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5" opacity=".72"/>
+    <path d="M166 267c0-9 7-16 16-16h82c9 0 16 7 16 16v48H166z" fill="#111" opacity=".19"/>
+    <path d="M131 134 99 151 47 282m255-148 32 17 52 131M131 249v185m145-185v185" fill="none" stroke="#111" stroke-width="4" opacity=".24"/>
+    <path d="M28 283 97 314l16-30-65-31m364 30-69 31-16-30 65-31" fill="#111" opacity=".12"/>
+    <path d="M137 434h145" fill="none" stroke="#111" stroke-width="5" opacity=".24"/>
+  </symbol>
+  <symbol id="tee-art" viewBox="0 0 440 500">
+    <path d="m132 94-55 27-48 103 67 31 28-51v201h150V204l28 51 67-31-48-103-55-27-35 22h-64z" fill="currentColor"/>
+    <path d="M172 94c4 25 21 39 48 39s44-14 48-39l-25-10h-46z" fill="#141414" opacity=".18"/>
+    <path d="M132 204v201m142-201v201M29 224l67 31m283-31-67 31" fill="none" stroke="#161616" stroke-width="4" opacity=".22"/>
+    <path d="M164 151h101" fill="none" stroke="#fff" stroke-width="4" opacity=".45"/>
+  </symbol>
+  <symbol id="overshirt-art" viewBox="0 0 440 500">
+    <path d="m131 92-58 30-47 104 66 31 31-54v202h154V203l31 54 66-31-47-104-58-30-43 26z" fill="currentColor"/>
+    <path d="m177 92 43 79 43-79-20-10h-46z" fill="#151515" opacity=".2"/>
+    <path d="M220 171v234m-53-211v75m106-75v75" fill="none" stroke="#151515" stroke-width="4" opacity=".28"/>
+    <path d="M171 245h38v54h-38zm60 0h38v54h-38z" fill="#fff" opacity=".16"/>
+    <circle cx="220" cy="210" r="4" fill="#fff"/><circle cx="220" cy="249" r="4" fill="#fff"/><circle cx="220" cy="288" r="4" fill="#fff"/>
+  </symbol>
+  <symbol id="pants-art" viewBox="0 0 440 500">
+    <path d="M111 67h218l-12 156-33 213h-78l-8-183-8 183h-78l-33-213z" fill="currentColor"/>
+    <path d="M111 67h218l-4 40H115z" fill="#151515" opacity=".23"/>
+    <path d="M220 107v146m-94-91h62m64 0h62M198 253l-8 183m52-183 8 183" fill="none" stroke="#151515" stroke-width="4" opacity=".26"/>
+    <path d="M143 116h30v47h-30zm124 0h30v47h-30z" fill="#fff" opacity=".14"/>
+  </symbol>
+  <symbol id="jacket-art" viewBox="0 0 440 500">
+    <path d="m128 95-58 27-43 110 67 31 27-47v208h198V216l27 47 67-31-43-110-58-27-39 24h-46z" fill="currentColor"/>
+    <path d="m167 95 53 89 53-89-25-10h-56z" fill="#111" opacity=".2"/>
+    <path d="M220 184v240m-70-212v65m140-65v65M85 263l-48-31m318 31 48-31" fill="none" stroke="#111" stroke-width="4" opacity=".28"/>
+    <path d="M154 260h43v61h-43zm89 0h43v61h-43z" fill="#fff" opacity=".12"/>
+    <circle cx="220" cy="223" r="4" fill="#fff"/><circle cx="220" cy="266" r="4" fill="#fff"/><circle cx="220" cy="309" r="4" fill="#fff"/>
+  </symbol>
+  <symbol id="cap-art" viewBox="0 0 440 500">
+    <path d="M94 266c6-98 48-161 126-161s120 63 126 161z" fill="currentColor"/>
+    <path d="M94 266c-2 22 17 43 49 51 77 19 156-14 228 8 22 7 33 21 24 31-26 28-119 42-213 24-70-14-115-45-115-77 0-19 10-31 27-37z" fill="#111" opacity=".2"/>
+    <path d="M142 263c7-77 31-117 78-117s71 40 78 117" fill="none" stroke="#fff" stroke-width="5" opacity=".45"/>
+    <path d="M212 198h16v16h-16z" fill="#fff" opacity=".68"/>
+  </symbol>
+</svg>

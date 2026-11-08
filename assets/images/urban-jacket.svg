@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 500" fill="none">
+  <defs>
+    <linearGradient id="jacket-fabric" x1="106" y1="99" x2="338" y2="419" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#555"/>
+      <stop offset=".48" stop-color="#303030"/>
+      <stop offset="1" stop-color="#191919"/>
+    </linearGradient>
+    <filter id="jacket-shadow" x="8" y="29" width="424" height="459" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+      <feOffset dy="13"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".2"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#jacket-shadow)">
+    <path d="m132 98-54 27-48 112 57 29 32-55v183c0 11 9 20 20 20h162c11 0 20-9 20-20V211l32 55 57-29-48-112-54-27-40 22h-96l-40-22Z" fill="url(#jacket-fabric)"/>
+    <path d="m167 97 53 89 53-89-25-10h-56l-25 10Z" fill="#b9b9b7"/>
+    <path d="m170 98 50 84-26 17-43-92 19-9Zm100 0-50 84 26 17 43-92-19-9Z" fill="#272727"/>
+    <path d="M220 184v229" stroke="#a9a9a9" stroke-opacity=".56" stroke-width="2"/>
+    <path d="M153 244h49v70h-49zm85 0h49v70h-49z" fill="#242424" stroke="#969696" stroke-opacity=".56" stroke-width="2"/>
+    <path d="M160 251h35v54h-35zm85 0h35v54h-35z" stroke="#c3c3c3" stroke-opacity=".28" stroke-width="2"/>
+    <path d="M164 265h28m-28 7h28m56-7h28m-28 7h28" stroke="#b8b8b8" stroke-opacity=".3" stroke-width="2"/>
+    <path d="M211 205h18v48h-18zm0 69h18v46h-18z" fill="#222" stroke="#999" stroke-opacity=".4" stroke-width="2"/>
+    <path d="M220 212v10m0 19v13m0 23v12m0 20v12m0 20v12m0 20v12" stroke="#d2d2d2" stroke-width="4" stroke-linecap="round"/>
+    <path d="m137 130-37 18-42 97m243-115 37 18 42 97M128 211v187m184-187v187" stroke="#bcbcbc" stroke-opacity=".32" stroke-width="2"/>
+    <path d="M139 395h162m-160 8h158" stroke="#aaa" stroke-opacity=".5" stroke-width="3"/>
+    <path d="M77 253 97 262m266-9-20 9" stroke="#ddd" stroke-opacity=".38" stroke-width="2"/>
+  </g>
+</svg>

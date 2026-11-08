@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 500" fill="none">
+  <defs>
+    <linearGradient id="cargo-fabric" x1="116" y1="78" x2="322" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#505050"/>
+      <stop offset=".47" stop-color="#292929"/>
+      <stop offset="1" stop-color="#171717"/>
+    </linearGradient>
+    <filter id="cargo-shadow" x="48" y="36" width="344" height="453" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="9"/>
+      <feOffset dy="12"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".2"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#cargo-shadow)">
+    <path d="M111 64h218l-12 144-33 221h-78l-8-181-8 181h-78l-33-221-12-144Z" fill="url(#cargo-fabric)"/>
+    <path d="M111 64h218l-4 39H115l-4-39Z" fill="#151515"/>
+    <path d="M118 103h204m-102 0v139m-85-96h58m56 0h58" stroke="#999" stroke-opacity=".42" stroke-width="2"/>
+    <path d="M126 123h48v62h-48zm140 0h48v62h-48z" fill="#202020" stroke="#858585" stroke-opacity=".48" stroke-width="2"/>
+    <path d="M132 130h36v48h-36zm140 0h36v48h-36z" stroke="#b9b9b9" stroke-opacity=".28" stroke-width="2"/>
+    <path d="M126 139h48m-48 8h48m92-8h48m-48 8h48" stroke="#9b9b9b" stroke-opacity=".35" stroke-width="2"/>
+    <path d="M220 104v136m-22 0-8 180m52-180 8 180" stroke="#a1a1a1" stroke-opacity=".45" stroke-width="2"/>
+    <path d="m96 208 19-10 42 14-9 60-47-5-5-59Zm233 0-19-10-42 14 9 60 47-5 5-59Z" fill="#222" stroke="#888" stroke-opacity=".55" stroke-width="2"/>
+    <path d="m104 217 42 12m-39 6 38 11m191-29-42 12m39 6-38 11" stroke="#aaa" stroke-opacity=".35" stroke-width="2"/>
+    <path d="M126 429h75m38 0h75" stroke="#a8a8a8" stroke-opacity=".42" stroke-width="3"/>
+    <path d="M110 196 143 402m187-206-33 206" stroke="#fff" stroke-opacity=".08" stroke-width="5"/>
+  </g>
+</svg>

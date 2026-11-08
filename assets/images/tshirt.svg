@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 500" fill="none">
+  <defs>
+    <linearGradient id="tee-fabric" x1="117" y1="115" x2="326" y2="415" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset=".52" stop-color="#eee"/>
+      <stop offset="1" stop-color="#c9c9c7"/>
+    </linearGradient>
+    <filter id="tee-shadow" x="10" y="38" width="420" height="435" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="9"/>
+      <feOffset dy="12"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".18"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#tee-shadow)">
+    <path d="m143 100-53 23-58 108 57 31 39-66v196c0 9 7 16 16 16h152c9 0 16-7 16-16V196l39 66 57-31-58-108-53-23-40 23h-74l-40-23Z" fill="url(#tee-fabric)"/>
+    <path d="m164 97 20 15c5 21 18 32 36 32s31-11 36-32l20-15-30-10h-52l-30 10Z" fill="#e1e1df"/>
+    <path d="M186 92c4 23 16 37 34 37s30-14 34-37" stroke="#a6a6a3" stroke-width="4"/>
+    <path d="M178 106c7 22 21 34 42 34s35-12 42-34" stroke="#fff" stroke-width="2"/>
+    <path d="M127 201v191c0 5 4 9 9 9h168c5 0 9-4 9-9V201" stroke="#969693" stroke-opacity=".56" stroke-width="2"/>
+    <path d="M94 132 62 224l36 20 34-58m214-54 32 92-36 20-34-58" stroke="#8e8e8b" stroke-opacity=".6" stroke-width="2"/>
+    <path d="M171 175h98" stroke="#fff" stroke-width="3" stroke-opacity=".7"/>
+    <path d="M170 399h100" stroke="#a5a5a2" stroke-opacity=".55" stroke-width="2"/>
+    <path d="M146 164c8 6 16 9 25 10m123-10c-8 6-16 9-25 10" stroke="#fff" stroke-opacity=".58" stroke-width="3" stroke-linecap="round"/>
+    <path d="M178 224h84v4h-84z" fill="#c5c5c2" opacity=".22"/>
+  </g>
+</svg>

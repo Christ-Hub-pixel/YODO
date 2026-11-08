@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 500" fill="none">
+  <defs>
+    <linearGradient id="hoodie-body" x1="120" y1="120" x2="330" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#555"/>
+      <stop offset=".48" stop-color="#343434"/>
+      <stop offset="1" stop-color="#1b1b1b"/>
+    </linearGradient>
+    <linearGradient id="hoodie-sleeve" x1="70" y1="145" x2="130" y2="310" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4a4a4a"/>
+      <stop offset="1" stop-color="#252525"/>
+    </linearGradient>
+    <filter id="hoodie-shadow" x="7" y="24" width="426" height="463" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+      <feOffset dy="13"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".2"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#hoodie-shadow)">
+    <path d="m144 126-51 26-61 135 58 27 38-70v169c0 11 9 20 20 20h144c11 0 20-9 20-20V244l38 70 58-27-61-135-51-26-43-18h-66l-43 18Z" fill="url(#hoodie-sleeve)"/>
+    <path d="M153 115c4-48 31-76 67-76s63 28 67 76l-33 34h-68l-33-34Z" fill="#303030"/>
+    <path d="M179 117c6-27 21-43 41-43s35 16 41 43l-21 20h-40l-21-20Z" fill="#161616"/>
+    <path d="M136 136 101 154l-53 117 37 17 45-82v183c0 8 6 14 14 14h152c8 0 14-6 14-14V206l45 82 37-17-53-117-35-18-43-15h-82l-43 15Z" fill="url(#hoodie-body)"/>
+    <path d="M170 134c5-26 20-43 50-43s45 17 50 43l-17 15h-66l-17-15Z" fill="#292929"/>
+    <path d="M177 149c7 30 18 46 43 46s36-16 43-46" stroke="#777" stroke-opacity=".48" stroke-width="3"/>
+    <path d="M194 151v55m52-55v55" stroke="#a7a7a7" stroke-opacity=".78" stroke-width="4" stroke-linecap="round"/>
+    <path d="M171 279c0-9 7-16 16-16h66c9 0 16 7 16 16v43H171v-43Z" fill="#242424" stroke="#777" stroke-opacity=".34" stroke-width="2"/>
+    <path d="M176 323v-42c0-6 5-11 11-11h66c6 0 11 5 11 11v42m-93 0h98" stroke="#919191" stroke-opacity=".36" stroke-width="2"/>
+    <path d="m139 150-34 17-44 98m240-115 34 17 44 98M128 242v169m184-169v169" stroke="#b5b5b5" stroke-opacity=".28" stroke-width="2"/>
+    <path d="M139 396h162m-160 7h158" stroke="#9b9b9b" stroke-opacity=".44" stroke-width="3"/>
+    <path d="M82 287 98 264m260 23-16-23" stroke="#c7c7c7" stroke-opacity=".38" stroke-width="2"/>
+  </g>
+</svg>

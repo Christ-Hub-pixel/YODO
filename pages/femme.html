@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta name="description" content="Découvrez la sélection Femme YODO, boutique multimarque. Articles de démonstration en F CFA.">
+    <title>Femme - YODO</title>
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body data-collection="femme">
+    <div class="announcement">YODO - Boutique multimarque <span aria-hidden="true">✳</span> Articles de démonstration</div>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="YODO, accueil"><img src="../logo.jpeg" alt="YODO"></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+        <a href="boutique.html">Boutique</a>
+        <a href="homme.html">Homme</a>
+        <a href="femme.html" aria-current="page">Femme</a>
+        <a href="streetwear.html">Streetwear</a>
+        <a href="../index.html#histoire">À propos</a>
+      </nav>
+      <a class="cart-trigger" href="panier.html" data-cart-link aria-label="Ouvrir le panier, 0 article">
+        <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M5 8h14l1.2 13H3.8L5 8Z"/>
+          <path d="M8 8V6a4 4 0 0 1 8 0v2"/>
+        </svg>
+        <span class="cart-count" data-cart-count>0</span>
+      </a>
+    </header>
+    <main class="catalog-page section-wrap">
+      <a class="back-link" href="boutique.html">← Boutique</a>
+      <header class="catalog-page-heading">
+        <p class="section-kicker">YODO / Sélection multimarque</p>
+        <h1>Femme</h1>
+        <p>Des essentiels et pièces streetwear de marques. Les articles et prix affichés sont des exemples de démonstration.</p>
+      </header>
+      <div class="catalog-controls">
+        <label class="catalog-search" for="catalog-search">Rechercher un article
+          <input id="catalog-search" type="search" placeholder="Nom, coupe ou matière" autocomplete="off">
+        </label>
+        <label class="catalog-category" for="category-filter">Catégorie
+          <select id="category-filter">
+            <option value="all">Toutes les catégories</option>
+            <option value="haut">Hauts</option>
+            <option value="veste">Vestes</option>
+            <option value="bas">Bas</option>
+            <option value="accessoire">Accessoires</option>
+          </select>
+        </label>
+        <button class="filter-button favorites-filter" id="show-favorites" type="button" aria-pressed="false">Favoris <span id="favorite-count">0</span></button>
+      </div>
+      <div class="catalog-result-line"><p id="filter-count" aria-live="polite"></p><p>Prix indicatifs · F CFA</p></div>
+      <div class="product-grid" id="product-grid"></div>
+      <p class="product-empty" id="product-empty" role="status" hidden>Aucun article ne correspond à ces critères. Modifiez la recherche ou les filtres.</p>
+      <p class="catalog-demo-note">Articles, prix et variantes présentés à titre de démonstration. La marque et la disponibilité sont à confirmer par WhatsApp.</p>
+    </main>
+    <footer class="site-footer">
+      <a class="footer-brand" href="../index.html" aria-label="YODO, retour à l’accueil">YODO<span>®</span></a>
+      <p>Votre boutique multimarque.</p>
+      <div class="footer-links"><a href="boutique.html">La boutique</a><a href="../index.html#histoire">Nos marques</a><a href="panier.html">Panier</a></div>
+      <small>© YODO 2026</small>
+    </footer>
+    <script type="module" src="../js/site-header.js"></script>
+    <script type="module" src="../js/catalog-page.js"></script>
+    <script src="../js/page-transitions.js"></script>
+  </body>
+</html>

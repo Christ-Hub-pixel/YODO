@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta name="description" content="YODO, boutique multimarque de vêtements streetwear premium pour homme et femme.">
+    <title>YODO - Boutique multimarque</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/",
+          "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js",
+          "gsap/ScrollTrigger": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/ScrollTrigger.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <svg class="art-library" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="hoodie-art" viewBox="0 0 440 500">
+        <path d="M138 108 84 135 28 283l69 31 34-65v185h145V249l34 65 69-31-56-148-54-27-49-20h-34z" fill="currentColor"/>
+        <path d="M154 104c3-42 28-68 66-68s63 26 66 68l-32 31h-68z" fill="currentColor"/>
+        <path d="M177 104c5-25 20-40 43-40s38 15 43 40l-22 20h-42z" fill="#111" opacity=".22"/>
+        <path d="m190 109 11 67m49-67-11 67" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5" opacity=".72"/>
+        <path d="M166 267c0-9 7-16 16-16h82c9 0 16 7 16 16v48H166z" fill="#111" opacity=".19"/>
+        <path d="M131 134 99 151 47 282m255-148 32 17 52 131M131 249v185m145-185v185" fill="none" stroke="#111" stroke-width="4" opacity=".24"/>
+        <path d="M28 283 97 314l16-30-65-31m364 30-69 31-16-30 65-31" fill="#111" opacity=".12"/>
+        <path d="M137 434h145" fill="none" stroke="#111" stroke-width="5" opacity=".24"/>
+      </symbol>
+      <symbol id="hoodie-back" viewBox="0 0 440 500">
+        <path d="M138 108 84 135 28 283l69 31 34-65v185h145V249l34 65 69-31-56-148-54-27-49-20h-34z" fill="currentColor"/>
+        <path d="M154 104c3-42 28-68 66-68s63 26 66 68l-32 31h-68z" fill="currentColor"/>
+        <path d="M177 104c5-25 20-40 43-40s38 15 43 40" fill="none" stroke="#111" stroke-width="5" opacity=".22"/>
+        <path d="M131 134 99 151 47 282m255-148 32 17 52 131M131 249v185m145-185v185m-56-272v294" fill="none" stroke="#111" stroke-width="4" opacity=".24"/>
+      </symbol>
+      <symbol id="tee-art" viewBox="0 0 440 500">
+        <path d="m132 94-55 27-48 103 67 31 28-51v201h150V204l28 51 67-31-48-103-55-27-35 22h-64z" fill="currentColor"/>
+        <path d="M172 94c4 25 21 39 48 39s44-14 48-39l-25-10h-46z" fill="#141414" opacity=".18"/>
+        <path d="M132 204v201m142-201v201M29 224l67 31m283-31-67 31" fill="none" stroke="#161616" stroke-width="4" opacity=".22"/>
+        <path d="M164 151h101" fill="none" stroke="#fff" stroke-width="4" opacity=".45"/>
+      </symbol>
+      <symbol id="overshirt-art" viewBox="0 0 440 500">
+        <path d="m131 92-58 30-47 104 66 31 31-54v202h154V203l31 54 66-31-47-104-58-30-43 26z" fill="currentColor"/>
+        <path d="m177 92 43 79 43-79-20-10h-46z" fill="#151515" opacity=".2"/>
+        <path d="M220 171v234m-53-211v75m106-75v75" fill="none" stroke="#151515" stroke-width="4" opacity=".28"/>
+        <path d="M171 245h38v54h-38zm60 0h38v54h-38z" fill="#fff" opacity=".16"/>
+        <circle cx="220" cy="210" r="4" fill="#fff"/><circle cx="220" cy="249" r="4" fill="#fff"/><circle cx="220" cy="288" r="4" fill="#fff"/>
+      </symbol>
+      <symbol id="pants-art" viewBox="0 0 440 500">
+        <path d="M111 67h218l-12 156-33 213h-78l-8-183-8 183h-78l-33-213z" fill="currentColor"/>
+        <path d="M111 67h218l-4 40H115z" fill="#151515" opacity=".23"/>
+        <path d="M220 107v146m-94-91h62m64 0h62M198 253l-8 183m52-183 8 183" fill="none" stroke="#151515" stroke-width="4" opacity=".26"/>
+        <path d="M143 116h30v47h-30zm124 0h30v47h-30z" fill="#fff" opacity=".14"/>
+      </symbol>
+      <symbol id="jacket-art" viewBox="0 0 440 500">
+        <path d="m128 95-58 27-43 110 67 31 27-47v208h198V216l27 47 67-31-43-110-58-27-39 24h-46z" fill="currentColor"/>
+        <path d="m167 95 53 89 53-89-25-10h-56z" fill="#111" opacity=".2"/>
+        <path d="M220 184v240m-70-212v65m140-65v65M85 263l-48-31m318 31 48-31" fill="none" stroke="#111" stroke-width="4" opacity=".28"/>
+        <path d="M154 260h43v61h-43zm89 0h43v61h-43z" fill="#fff" opacity=".12"/>
+        <circle cx="220" cy="223" r="4" fill="#fff"/><circle cx="220" cy="266" r="4" fill="#fff"/><circle cx="220" cy="309" r="4" fill="#fff"/>
+      </symbol>
+      <symbol id="cap-art" viewBox="0 0 440 500">
+        <path d="M94 266c6-98 48-161 126-161s120 63 126 161z" fill="currentColor"/>
+        <path d="M94 266c-2 22 17 43 49 51 77 19 156-14 228 8 22 7 33 21 24 31-26 28-119 42-213 24-70-14-115-45-115-77 0-19 10-31 27-37z" fill="#111" opacity=".2"/>
+        <path d="M142 263c7-77 31-117 78-117s71 40 78 117" fill="none" stroke="#fff" stroke-width="5" opacity=".45"/>
+        <path d="M212 198h16v16h-16z" fill="#fff" opacity=".68"/>
+      </symbol>
+    </svg>
+
+    <div class="announcement">
+      Livraison offerte dès 59 000 F CFA <span aria-hidden="true">✳</span> Les marques streetwear, réunies chez YODO
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="YODO, accueil">
+        <img src="logo.jpeg" alt="YODO">
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        Menu
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+        <a href="pages/boutique.html">Boutique</a>
+        <a href="pages/homme.html">Homme</a>
+        <a href="pages/femme.html">Femme</a>
+        <a href="pages/streetwear.html">Streetwear</a>
+        <a href="#histoire">À propos</a>
+        <a href="#newsletter">Journal</a>
+      </nav>
+      <a class="cart-trigger" href="pages/panier.html" data-cart-link aria-label="Ouvrir le panier, 0 article">
+        <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M5 8h14l1.2 13H3.8L5 8Z"/>
+          <path d="M8 8V6a4 4 0 0 1 8 0v2"/>
+        </svg>
+        <span class="cart-count" data-cart-count>0</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="season-note"><span></span> Homme · Femme · Streetwear</p>
+          <h1 id="hero-title">Les marques.<br><span>Votre style.</span></h1>
+          <p class="hero-intro">Les pièces de marques streetwear et premium que vous aimez, réunies dans une seule boutique.</p>
+          <a class="button hero-cta" href="pages/boutique.html">Découvrir la boutique <span aria-hidden="true">↘</span></a>
+          <p class="hero-footnote">Plusieurs marques. Un seul endroit.</p>
+        </div>
+
+        <div class="hero-stage" id="hero-stage">
+          <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+          <div class="stage-orbit orbit-one"></div>
+          <div class="stage-orbit orbit-two"></div>
+          <span class="stage-index">SÉLECTION YODO / 01</span>
+          <div class="stage-caption"><span>VISUEL DE DÉMONSTRATION</span><span>360°</span></div>
+          <div class="garment-turntable" id="garment-turntable" role="img" aria-label="Illustration de démonstration d’un hoodie. Faites glisser pour le faire pivoter. Elle remplace la scène 3D si WebGL est indisponible.">
+            <div class="garment-model" aria-hidden="true">
+              <div class="garment-depth"></div>
+              <svg class="hero-garment garment-front" viewBox="0 0 440 500"><use href="#hoodie-art"></use></svg>
+              <svg class="hero-garment garment-back" viewBox="0 0 440 500"><use href="#hoodie-back"></use></svg>
+              <span class="garment-side" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="stage-controls">
+            <button type="button" id="rotate-left" aria-label="Faire pivoter les mannequins vers la gauche">←</button>
+            <span>FAITES GLISSER</span>
+            <button type="button" id="rotate-right" aria-label="Faire pivoter les mannequins vers la droite">→</button>
+          </div>
+          <div class="zoom-controls" aria-label="Zoomer sur les mannequins">
+            <button type="button" data-zoom="in" aria-label="Zoomer">+</button>
+            <button type="button" data-zoom="out" aria-label="Dézoomer">−</button>
+          </div>
+          <span class="stage-side-note">GLISSER POUR TOURNER</span>
+          <p class="stage-status" id="scene-status" role="status" aria-live="polite">Visuel de démonstration affiché ; la scène 3D se charge à l’approche.</p>
+        </div>
+        <div class="hero-edge-note" aria-hidden="true">YODO / 2026</div>
+      </section>
+
+      <section class="ticker" aria-label="À propos de la collection">
+        <div class="ticker-track">
+          <div class="ticker-group">
+            <span>Plusieurs marques</span><span class="ticker-mark">✳</span>
+            <span>Streetwear sélectionné</span><span class="ticker-mark">✳</span>
+            <span>Un vestiaire, plusieurs labels</span><span class="ticker-mark">✳</span>
+            <span>Plusieurs marques</span><span class="ticker-mark">✳</span>
+            <span>Streetwear sélectionné</span><span class="ticker-mark">✳</span>
+            <span>Un vestiaire, plusieurs labels</span><span class="ticker-mark">✳</span>
+          </div>
+          <div class="ticker-group" aria-hidden="true">
+            <span>Plusieurs marques</span><span class="ticker-mark">✳</span>
+            <span>Streetwear sélectionné</span><span class="ticker-mark">✳</span>
+            <span>Un vestiaire, plusieurs labels</span><span class="ticker-mark">✳</span>
+            <span>Plusieurs marques</span><span class="ticker-mark">✳</span>
+            <span>Streetwear sélectionné</span><span class="ticker-mark">✳</span>
+            <span>Un vestiaire, plusieurs labels</span><span class="ticker-mark">✳</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="collection section-wrap" id="collection" aria-labelledby="collection-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">La sélection multimarque</p>
+            <h2 id="collection-title">Vos marques.<br>Votre vestiaire.</h2>
+          </div>
+          <p class="section-description">Parcourez chaque univers sur sa propre page et retrouvez des pièces de marques au même endroit.</p>
+        </div>
+        <div class="audience-collections" aria-label="Collections par univers">
+          <article class="audience-card">
+            <div class="audience-visual visual-stone">
+              <span>HOMME / SÉLECTION</span>
+              <svg class="audience-art" viewBox="0 0 440 500" aria-hidden="true"><use href="#hoodie-art"></use></svg>
+            </div>
+            <div class="audience-copy">
+              <h3>Homme</h3>
+              <p>Hoodies, vestes et essentiels de marques.</p>
+              <a class="audience-link" href="pages/homme.html">Voir la sélection <span aria-hidden="true">↘</span></a>
+            </div>
+          </article>
+          <article class="audience-card">
+            <div class="audience-visual visual-fog">
+              <span>FEMME / SÉLECTION</span>
+              <svg class="audience-art" viewBox="0 0 440 500" aria-hidden="true"><use href="#jacket-art"></use></svg>
+            </div>
+            <div class="audience-copy">
+              <h3>Femme</h3>
+              <p>Des essentiels et pièces streetwear de marques.</p>
+              <a class="audience-link" href="pages/femme.html">Voir la sélection <span aria-hidden="true">↘</span></a>
+            </div>
+          </article>
+          <article class="audience-card">
+            <div class="audience-visual visual-slate">
+              <span>STREETWEAR / SÉLECTION</span>
+              <svg class="audience-art" viewBox="0 0 440 500" aria-hidden="true"><use href="#pants-art"></use></svg>
+            </div>
+            <div class="audience-copy">
+              <h3>Streetwear</h3>
+              <p>Des silhouettes urbaines et des pièces à associer.</p>
+              <a class="audience-link" href="pages/streetwear.html">Explorer <span aria-hidden="true">↘</span></a>
+            </div>
+          </article>
+          <article class="audience-card">
+            <div class="audience-visual visual-ash">
+              <span>YODO / CATALOGUE</span>
+              <svg class="audience-art" viewBox="0 0 440 500" aria-hidden="true"><use href="#cap-art"></use></svg>
+            </div>
+            <div class="audience-copy">
+              <h3>Tout voir</h3>
+              <p>Retrouvez les références disponibles dans la boutique.</p>
+              <a class="audience-link" href="pages/boutique.html">Voir la boutique <span aria-hidden="true">↘</span></a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="manifesto" id="histoire" aria-labelledby="manifesto-title">
+        <div class="manifesto-art" aria-hidden="true">
+          <div class="manifesto-disc"></div>
+          <span class="manifesto-stamp">YODO<br>ON YOUR<br>OWN TERMS</span>
+          <span class="manifesto-side">COLLECTION 01 / 2026</span>
+        </div>
+        <div class="manifesto-copy">
+          <p class="section-kicker">Une boutique, plusieurs univers</p>
+          <h2 id="manifesto-title">Les marques<br><span>à votre façon.</span></h2>
+          <p>YODO sélectionne des vêtements de marques streetwear et premium, puis les réunit dans une boutique unisexe. Choisissez vos pièces, composez votre style.</p>
+          <a class="text-link" href="pages/boutique.html">Voir les articles <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="newsletter section-wrap" id="newsletter" aria-labelledby="newsletter-title">
+        <div>
+          <p class="section-kicker">Les nouveautés des marques</p>
+          <h2 id="newsletter-title">Du nouveau.<br>Pas de bruit.</h2>
+        </div>
+        <form class="newsletter-form" id="newsletter-form">
+          <label for="newsletter-email">Une note quand la suite arrive.</label>
+          <div class="email-field">
+            <input id="newsletter-email" name="email" type="email" placeholder="Votre adresse e-mail" autocomplete="email" required>
+            <button type="submit" aria-label="S'inscrire à la newsletter">M’inscrire <span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="form-message" id="newsletter-message" aria-live="polite">Une à deux nouvelles par mois. Vous pouvez partir quand vous voulez.</p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="index.html" aria-label="YODO, retour à l’accueil">YODO<span>®</span></a>
+      <p>Votre boutique multimarque.</p>
+      <div class="footer-links"><a href="pages/boutique.html">La boutique</a><a href="#histoire">Nos marques</a><a href="mailto:bonjour@yodo.fr">Nous écrire</a></div>
+      <small>© YODO 2026</small>
+    </footer>
+
+    <script type="module" src="js/home-page.js"></script>
+    <script type="module" src="js/site-header.js"></script>
+    <script type="module" src="js/three-bootstrap.js"></script>
+    <script type="module" src="js/animations.js"></script>
+    <script src="js/page-transitions.js"></script>
+  </body>
+</html>

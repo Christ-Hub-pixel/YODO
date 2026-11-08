@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 500" fill="none">
+  <defs>
+    <linearGradient id="cap-crown" x1="111" y1="111" x2="336" y2="278" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8b8b88"/>
+      <stop offset=".52" stop-color="#60605e"/>
+      <stop offset="1" stop-color="#393938"/>
+    </linearGradient>
+    <linearGradient id="cap-visor" x1="112" y1="270" x2="357" y2="354" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#555"/>
+      <stop offset="1" stop-color="#292929"/>
+    </linearGradient>
+    <filter id="cap-shadow" x="41" y="78" width="358" height="357" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+      <feOffset dy="13"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".2"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#cap-shadow)">
+    <path d="M94 275c8-105 51-171 126-171s118 66 126 171H94Z" fill="url(#cap-crown)"/>
+    <path d="M94 275c43 3 84 6 126 6s83-3 126-6v15c-84 23-168 23-252 0v-15Z" fill="#262626"/>
+    <path d="M97 288c73 23 173 25 246 0 19 10 32 23 28 37-9 33-95 61-188 50-80-9-137-45-132-71 2-7 19-14 46-16Z" fill="url(#cap-visor)"/>
+    <path d="M95 288c73 23 173 25 246 0" stroke="#aaa" stroke-opacity=".5" stroke-width="3"/>
+    <path d="M112 260c8-88 38-137 91-151m125 151c-8-88-38-137-91-151m-17-1v166" stroke="#d4d4d2" stroke-opacity=".42" stroke-width="3"/>
+    <path d="M219 119c-2-12 2-21 10-22 7 0 11 9 9 21" fill="#777" stroke="#ccc" stroke-opacity=".48" stroke-width="2"/>
+    <path d="M148 248c5-67 25-103 61-123m85 123c-5-67-25-103-61-123" stroke="#bdbdba" stroke-opacity=".26" stroke-width="2"/>
+    <path d="M103 304c-1 16 12 32 33 44m198-43c2 14-9 27-28 37" stroke="#aaa" stroke-opacity=".38" stroke-width="2"/>
+    <path d="M134 320c54 14 130 17 187 4" stroke="#e1e1df" stroke-opacity=".2" stroke-width="2"/>
+    <path d="M211 192h20v20h-20z" fill="#dadad8"/>
+    <path d="M216 197h10v10h-10z" fill="#484848"/>
+  </g>
+</svg>
