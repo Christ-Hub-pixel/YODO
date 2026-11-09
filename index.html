@@ -131,6 +131,26 @@
             <button type="button" data-zoom="in" aria-label="Zoomer">+</button>
             <button type="button" data-zoom="out" aria-label="Dézoomer">−</button>
           </div>
+          <div class="studio-toolbar" aria-label="Personnalisation du Showroom 3D">
+            <div class="colorway-switcher" role="group" aria-label="Variante couleur de la pièce">
+              <button type="button" class="colorway-pill is-active" data-colorway="noir-rouge" aria-pressed="true">
+                <span class="swatch-dot swatch-noir" aria-hidden="true"></span>Noir / Rouge
+              </button>
+              <button type="button" class="colorway-pill" data-colorway="blanc-rouge" aria-pressed="false">
+                <span class="swatch-dot swatch-blanc" aria-hidden="true"></span>Blanc / Rouge
+              </button>
+            </div>
+            <div class="studio-sliders">
+              <label class="led-control" for="led-slider">
+                <span>HALO LED</span>
+                <input id="led-slider" type="range" min="25" max="135" value="95" aria-label="Intensité du halo LED rouge">
+              </label>
+              <label class="led-control" for="speed-slider">
+                <span>VITESSE 360°</span>
+                <input id="speed-slider" type="range" min="0" max="100" value="35" aria-label="Vitesse de rotation automatique">
+              </label>
+            </div>
+          </div>
           <span class="stage-side-note">GLISSER POUR TOURNER</span>
           <p class="stage-status" id="scene-status" role="status" aria-live="polite">Scène 3D streetwear active.</p>
         </div>
@@ -140,21 +160,77 @@
       <section class="ticker" aria-label="À propos de la collection">
         <div class="ticker-track">
           <div class="ticker-group">
-            <span>Plusieurs marques</span><span class="ticker-mark">✳</span>
-            <span>Streetwear sélectionné</span><span class="ticker-mark">✳</span>
+            <span>Showroom 360° Studio</span><span class="ticker-mark">✳</span>
+            <span>Noir Profond &amp; Rouge Intense</span><span class="ticker-mark">✳</span>
             <span>Un vestiaire, plusieurs labels</span><span class="ticker-mark">✳</span>
-            <span>Plusieurs marques</span><span class="ticker-mark">✳</span>
-            <span>Streetwear sélectionné</span><span class="ticker-mark">✳</span>
+            <span>Showroom 360° Studio</span><span class="ticker-mark">✳</span>
+            <span>Noir Profond &amp; Rouge Intense</span><span class="ticker-mark">✳</span>
             <span>Un vestiaire, plusieurs labels</span><span class="ticker-mark">✳</span>
           </div>
           <div class="ticker-group" aria-hidden="true">
-            <span>Plusieurs marques</span><span class="ticker-mark">✳</span>
-            <span>Streetwear sélectionné</span><span class="ticker-mark">✳</span>
+            <span>Showroom 360° Studio</span><span class="ticker-mark">✳</span>
+            <span>Noir Profond &amp; Rouge Intense</span><span class="ticker-mark">✳</span>
             <span>Un vestiaire, plusieurs labels</span><span class="ticker-mark">✳</span>
-            <span>Plusieurs marques</span><span class="ticker-mark">✳</span>
-            <span>Streetwear sélectionné</span><span class="ticker-mark">✳</span>
+            <span>Showroom 360° Studio</span><span class="ticker-mark">✳</span>
+            <span>Noir Profond &amp; Rouge Intense</span><span class="ticker-mark">✳</span>
             <span>Un vestiaire, plusieurs labels</span><span class="ticker-mark">✳</span>
           </div>
+        </div>
+      </section>
+
+      <section class="lookbook-showcase section-wrap" id="lookbook" aria-labelledby="lookbook-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Direction Artistique · Showroom &amp; Lookbook 2026</p>
+            <h2 id="lookbook-title">L’allure.<br><span>Sous haute tension.</span></h2>
+          </div>
+          <p class="section-description">Deux vestiaires complémentaires pensés pour l’architecture nocturne : coupes structurées, molleton lourd 520g et détails rouges <code class="hex-badge">#E51F35</code>.</p>
+        </div>
+
+        <div class="lookbook-grid">
+          <article class="lookbook-feature">
+            <div class="lookbook-media">
+              <img src="assets/images/lookbook-men.jpg" alt="Silhouette masculine YODO en hoodie noir à liserés rouges, pantalon cargo streetwear et sneakers blanches sur podium chromé" loading="lazy">
+              <div class="lookbook-overlay">
+                <span class="lookbook-badge">COLLECTION HOMME / 01</span>
+                <span class="lookbook-spec">Podium Showroom · 520 GSM</span>
+              </div>
+            </div>
+            <div class="lookbook-body">
+              <div class="lookbook-meta">
+                <span>SILHOUETTE MASCULINE</span>
+                <span>NOIR · ROUGE · BLANC</span>
+              </div>
+              <h3>Vestiaire Homme — Podium Edition</h3>
+              <p>Hoodie oversize noir à liserés rouges sur épaules tombantes, pantalon cargo technique à passepoils <code class="hex-badge">#E51F35</code> et sneakers basses en cuir blanc.</p>
+              <div class="lookbook-actions">
+                <a class="button hero-cta" href="pages/homme.html">Explorer Homme <span aria-hidden="true">↘</span></a>
+                <a class="text-link" href="pages/produit.html?id=hoodie-01">Voir le Hoodie Studio <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="lookbook-feature">
+            <div class="lookbook-media">
+              <img src="assets/images/lookbook-duo-women.jpg" alt="Duo streetwear urbain homme et femme en tenues noir, blanc et rouge devant une architecture nocturne" loading="lazy">
+              <div class="lookbook-overlay">
+                <span class="lookbook-badge">COLLECTION FEMME &amp; DUO / 02</span>
+                <span class="lookbook-spec">Éditorial Urbain · Nuit</span>
+              </div>
+            </div>
+            <div class="lookbook-body">
+              <div class="lookbook-meta">
+                <span>ESTHÉTIQUE DUO HOMME / FEMME</span>
+                <span>ÉDITORIAL URBAIN</span>
+              </div>
+              <h3>Vestiaire Femme — Contrastes Architecturaux</h3>
+              <p>Crop hoodie blanc optique à empiècements géométriques noirs et rouges, associé au cargo large à coutures rouges et sneakers immaculées.</p>
+              <div class="lookbook-actions">
+                <a class="button hero-cta" href="pages/femme.html">Explorer Femme <span aria-hidden="true">↘</span></a>
+                <a class="text-link" href="pages/produit.html?id=crop-hoodie-08">Voir le Crop Hoodie <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -162,68 +238,135 @@
         <div class="section-heading">
           <div>
             <p class="section-kicker">La sélection multimarque</p>
-            <h2 id="collection-title">Vos marques.<br>Votre vestiaire.</h2>
+            <h2 id="collection-title">Vos marques.<br><span>Votre vestiaire.</span></h2>
           </div>
-          <p class="section-description">Parcourez chaque univers sur sa propre page et retrouvez des pièces de marques au même endroit.</p>
+          <p class="section-description">Parcourez chaque univers sur sa propre page et retrouvez nos pièces phares éclairées comme en galerie.</p>
         </div>
         <div class="audience-collections" aria-label="Collections par univers">
           <article class="audience-card">
             <div class="audience-visual visual-stone">
               <span>HOMME / SÉLECTION</span>
+              <img class="audience-photo" src="assets/images/lookbook-men.jpg" alt="" loading="lazy">
               <svg class="audience-art" viewBox="0 0 440 500" aria-hidden="true"><use href="#hoodie-art"></use></svg>
             </div>
             <div class="audience-copy">
               <h3>Homme</h3>
-              <p>Hoodies, vestes et essentiels de marques.</p>
+              <p>Hoodies 520g à détails rouges, cargos structurés et sneakers blanches.</p>
               <a class="audience-link" href="pages/homme.html">Voir la sélection <span aria-hidden="true">↘</span></a>
             </div>
           </article>
           <article class="audience-card">
             <div class="audience-visual visual-fog">
               <span>FEMME / SÉLECTION</span>
+              <img class="audience-photo" src="assets/images/lookbook-duo-women.jpg" alt="" loading="lazy">
               <svg class="audience-art" viewBox="0 0 440 500" aria-hidden="true"><use href="#jacket-art"></use></svg>
             </div>
             <div class="audience-copy">
               <h3>Femme</h3>
-              <p>Des essentiels et pièces streetwear de marques.</p>
+              <p>Silhouettes noir, blanc et rouge, coupes courtes et cargos urbains.</p>
               <a class="audience-link" href="pages/femme.html">Voir la sélection <span aria-hidden="true">↘</span></a>
             </div>
           </article>
           <article class="audience-card">
             <div class="audience-visual visual-slate">
               <span>STREETWEAR / SÉLECTION</span>
+              <img class="audience-photo" src="assets/images/hero-showroom-hoodie.jpg" alt="" loading="lazy">
               <svg class="audience-art" viewBox="0 0 440 500" aria-hidden="true"><use href="#pants-art"></use></svg>
             </div>
             <div class="audience-copy">
               <h3>Streetwear</h3>
-              <p>Des silhouettes urbaines et des pièces à associer.</p>
+              <p>Pièces maîtresses sur podium chromé et éditions limitées.</p>
               <a class="audience-link" href="pages/streetwear.html">Explorer <span aria-hidden="true">↘</span></a>
             </div>
           </article>
           <article class="audience-card">
             <div class="audience-visual visual-ash">
               <span>YODO / CATALOGUE</span>
+              <img class="audience-photo" src="assets/images/showroom-architecture.jpg" alt="" loading="lazy">
               <svg class="audience-art" viewBox="0 0 440 500" aria-hidden="true"><use href="#cap-art"></use></svg>
             </div>
             <div class="audience-copy">
               <h3>Tout voir</h3>
-              <p>Retrouvez les références disponibles dans la boutique.</p>
+              <p>L’intégralité des références réunies dans le showroom YODO.</p>
               <a class="audience-link" href="pages/boutique.html">Voir la boutique <span aria-hidden="true">↘</span></a>
             </div>
           </article>
+        </div>
+
+        <div class="flagship-showcase" aria-label="Pièces phares du showroom">
+          <div class="flagship-header">
+            <p class="section-kicker">Éclairage Studio · Pièces Maîtresses</p>
+            <h3>Sélection Showroom</h3>
+          </div>
+          <div class="product-grid">
+            <article class="product-card">
+              <div class="product-visual visual-stone">
+                <span class="product-tag">360° STUDIO</span>
+                <span class="visual-number">Y-01</span>
+                <div class="product-3d">
+                  <img class="product-art" src="assets/images/hoodie.svg" alt="Hoodie Studio Noir" loading="lazy">
+                </div>
+              </div>
+              <div class="product-info">
+                <div>
+                  <h3>Hoodie Studio Noir</h3>
+                  <p>Molleton lourd 520g · Liserés rouges #E51F35</p>
+                </div>
+                <span>48 500 F CFA</span>
+              </div>
+              <a class="product-detail-link" href="pages/produit.html?id=hoodie-01">Choisir les options <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="product-card">
+              <div class="product-visual visual-fog">
+                <span class="product-tag">LOOKBOOK FEMME</span>
+                <span class="visual-number">Y-02</span>
+                <div class="product-3d">
+                  <img class="product-art" src="assets/images/crop-hoodie.svg" alt="Crop Hoodie Duo Blanc &amp; Rouge" loading="lazy">
+                </div>
+              </div>
+              <div class="product-info">
+                <div>
+                  <h3>Crop Hoodie Duo Blanc &amp; Rouge</h3>
+                  <p>Molleton structuré · Empiècements géométriques</p>
+                </div>
+                <span>46 000 F CFA</span>
+              </div>
+              <a class="product-detail-link" href="pages/produit.html?id=crop-hoodie-08">Choisir les options <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="product-card">
+              <div class="product-visual visual-slate">
+                <span class="product-tag">SHOWROOM</span>
+                <span class="visual-number">Y-03</span>
+                <div class="product-3d">
+                  <img class="product-art" src="assets/images/cargo-pants.svg" alt="Cargo Technique Liseré Rouge" loading="lazy">
+                </div>
+              </div>
+              <div class="product-info">
+                <div>
+                  <h3>Cargo Technique Liseré Rouge</h3>
+                  <p>Coton ripstop déperlant · Passepoils #E51F35</p>
+                </div>
+                <span>54 000 F CFA</span>
+              </div>
+              <a class="product-detail-link" href="pages/produit.html?id=pants-04">Choisir les options <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
         </div>
       </section>
 
       <section class="manifesto" id="histoire" aria-labelledby="manifesto-title">
         <div class="manifesto-art" aria-hidden="true">
+          <img class="manifesto-bg" src="assets/images/showroom-architecture.jpg" alt="" loading="lazy">
           <div class="manifesto-disc"></div>
           <span class="manifesto-stamp">YODO<br>ON YOUR<br>OWN TERMS</span>
-          <span class="manifesto-side">COLLECTION 01 / 2026</span>
+          <span class="manifesto-side">SHOWROOM 01 / 2026</span>
         </div>
         <div class="manifesto-copy">
-          <p class="section-kicker">Une boutique, plusieurs univers</p>
-          <h2 id="manifesto-title">Les marques<br><span>à votre façon.</span></h2>
-          <p>YODO sélectionne des vêtements de marques streetwear et premium, puis les réunit dans une boutique unisexe. Choisissez vos pièces, composez votre style.</p>
+          <p class="section-kicker">Architecture &amp; Identité Visuelle</p>
+          <h2 id="manifesto-title">Le luxe urbain.<br><span>Sans compromis.</span></h2>
+          <p>Pensé comme un sanctuaire architectural noir profond et rouge intense, YODO sélectionne des vêtements de marques streetwear et premium et les met en scène avec une exigence éditoriale.</p>
           <a class="text-link" href="pages/boutique.html">Voir les articles <span aria-hidden="true">↗</span></a>
         </div>
       </section>

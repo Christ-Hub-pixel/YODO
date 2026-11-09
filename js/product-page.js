@@ -46,7 +46,7 @@ if (!product) {
   const art = document.createElement("img");
   art.className = `product-art ${product.symbol}`;
   art.src = `../assets/images/${product.image}`;
-  art.alt = "";
+  art.alt = `${product.name} — ${product.detail}`;
   visual.append(art);
 
   const sizeSelect = document.querySelector("#product-size");

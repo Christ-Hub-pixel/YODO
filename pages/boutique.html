@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#FFFFFF">
-    <meta name="description" content="Parcourez la sélection multimarque YODO. Articles de démonstration, prix affichés en F CFA.">
+    <meta name="description" content="Parcourez le Showroom multimarque YODO : vêtements streetwear de luxe, éclairage studio, homme et femme.">
     <title>Boutique - YODO</title>
     <link rel="stylesheet" href="../style.css">
   </head>
   <body data-collection="all">
-    <div class="announcement">YODO - Boutique multimarque <span aria-hidden="true">✳</span> Articles de démonstration</div>
+    <div class="announcement">YODO - Showroom Streetwear <span aria-hidden="true">✳</span> Catalogue Complet · Édition 2026</div>
     <header class="site-header">
       <a class="brand" href="../index.html" aria-label="YODO, accueil"><img src="../logo.jpeg" alt="YODO"></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
@@ -30,11 +30,17 @@
     </header>
     <main class="catalog-page section-wrap">
       <a class="back-link" href="../index.html">← Accueil</a>
-      <header class="catalog-page-heading">
-        <p class="section-kicker">La sélection multimarque</p>
-        <h1>Boutique</h1>
-        <p>Les pièces de marques réunies par YODO. Les références et prix présentés ici sont des données de démonstration.</p>
-      </header>
+      <section class="collection-hero-banner" aria-labelledby="boutique-title">
+        <div class="collection-banner-copy">
+          <p class="section-kicker">La sélection multimarque · Galerie Studio</p>
+          <h1 id="boutique-title">Le Showroom<br><span>YODO.</span></h1>
+          <p>Toutes les pièces des vestiaires Homme, Femme et Streetwear réunies dans notre galerie noire et rouge <code class="hex-badge">#E51F35</code>.</p>
+        </div>
+        <div class="collection-banner-media">
+          <img src="../assets/images/showroom-architecture.jpg" alt="Architecture intérieure du showroom YODO en marbre noir, néons rouges et podium circulaire chromé">
+          <span class="banner-caption">ARCHITECTURE SHOWROOM · 360°</span>
+        </div>
+      </section>
       <div class="catalog-controls">
         <label class="catalog-search" for="catalog-search">Rechercher un article
           <input id="catalog-search" type="search" placeholder="Nom, coupe ou matière" autocomplete="off">
@@ -45,15 +51,15 @@
             <option value="haut">Hauts</option>
             <option value="veste">Vestes</option>
             <option value="bas">Bas</option>
-            <option value="accessoire">Accessoires</option>
+            <option value="accessoire">Sneakers &amp; Accessoires</option>
           </select>
         </label>
         <button class="filter-button favorites-filter" id="show-favorites" type="button" aria-pressed="false">Favoris <span id="favorite-count">0</span></button>
       </div>
-      <div class="catalog-result-line"><p id="filter-count" aria-live="polite"></p><p>Prix indicatifs · F CFA</p></div>
+      <div class="catalog-result-line"><p id="filter-count" aria-live="polite"></p><p>Tarifs Showroom · F CFA</p></div>
       <div class="product-grid" id="product-grid"></div>
       <p class="product-empty" id="product-empty" role="status" hidden>Aucun article ne correspond à ces critères. Modifiez la recherche ou les filtres.</p>
-      <p class="catalog-demo-note">Articles, prix et variantes présentés à titre de démonstration. La marque et la disponibilité sont à confirmer par WhatsApp.</p>
+      <p class="catalog-demo-note">Pièces et variantes disponibles en édition limitée. Disponibilité et expédition confirmées sur WhatsApp.</p>
     </main>
     <footer class="site-footer">
       <a class="footer-brand" href="../index.html" aria-label="YODO, retour à l’accueil">YODO<span>®</span></a>

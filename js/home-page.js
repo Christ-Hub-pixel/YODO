@@ -57,9 +57,66 @@ if (turntable && model) {
     });
   });
 
+  const colorwayButtons = document.querySelectorAll("[data-colorway]");
+  colorwayButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const variant = button.dataset.colorway || "noir-rouge";
+      colorwayButtons.forEach((btn) => {
+        const active = btn === button;
+        btn.classList.toggle("is-active", active);
+        btn.setAttribute("aria-pressed", String(active));
+      });
+      const frontSvg = turntable.querySelector(".garment-front");
+      const backSvg = turntable.querySelector(".garment-back");
+      if (frontSvg) {
+        frontSvg.style.color = variant === "blanc-rouge" ? "#ececf0" : "#d7d7d7";
+      }
+      if (backSvg) {
+        backSvg.style.color = variant === "blanc-rouge" ? "#d8d8e0" : "#8d8d8d";
+      }
+      heroStage?.dispatchEvent(
+        new CustomEvent("yodo:colorway", {
+          detail: { variant },
+          bubbles: true,
+        })
+      );
+    });
+  });
+
+  const ledSlider = document.querySelector("#led-slider");
+  ledSlider?.addEventListener("input", () => {
+    const intensity = Number(ledSlider.value);
+    if (heroStage) {
+      heroStage.style.setProperty("--led-alpha", (0.14 + (intensity / 135) * 0.36).toFixed(2));
+    }
+    heroStage?.dispatchEvent(
+      new CustomEvent("yodo:led", {
+        detail: { intensity },
+        bubbles: true,
+      })
+    );
+  });
+
+  const speedSlider = document.querySelector("#speed-slider");
+  speedSlider?.addEventListener("input", () => {
+    heroStage?.dispatchEvent(
+      new CustomEvent("yodo:speed", {
+        detail: { speed: Number(speedSlider.value) },
+        bubbles: true,
+      })
+    );
+  });
+
+  const manifestoArt = document.querySelector(".manifesto-art");
   const syncMotion = () => {
     const active = !reducedMotion.matches && document.visibilityState === "visible";
-    if (heroStage) heroStage.dataset.motion = active ? "on" : "off";
+    if (heroStage) {
+      heroStage.dataset.motion = active ? "on" : "off";
+      heroStage.classList.toggle("motion-active", active);
+    }
+    if (manifestoArt) {
+      manifestoArt.classList.toggle("motion-active", active);
+    }
   };
   document.addEventListener("visibilitychange", syncMotion);
   reducedMotion.addEventListener("change", syncMotion);

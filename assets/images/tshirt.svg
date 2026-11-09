@@ -13,8 +13,8 @@
     </filter>
   </defs>
   <g filter="url(#tee-shadow)">
-    <path d="m143 100-53 23-58 108 57 31 39-66v196c0 9 7 16 16 16h152c9 0 16-7 16-16V196l39 66 57-31-58-108-53-23-40 23h-74l-40-23Z" fill="url(#tee-fabric)"/>
-    <path d="m164 97 20 15c5 21 18 32 36 32s31-11 36-32l20-15-30-10h-52l-30 10Z" fill="#e1e1df"/>
+    <path d="m143 100-53 23-58 108 57 31 39-66v196c0 9 7 16 16 16h152c9 0 16-7 16-16V196l39 66 57-31-58-108-53-23-40 23h-74l-40-23Z" fill="url(#tee-fabric)" stroke="#b4b4b0" stroke-width="2" stroke-linejoin="round"/>
+    <path d="m164 97 20 15c5 21 18 32 36 32s31-11 36-32l20-15-30-10h-52l-30 10Z" fill="#e1e1df" stroke="#b4b4b0" stroke-width="1.5" stroke-linejoin="round"/>
     <path d="M186 92c4 23 16 37 34 37s30-14 34-37" stroke="#a6a6a3" stroke-width="4"/>
     <path d="M178 106c7 22 21 34 42 34s35-12 42-34" stroke="#fff" stroke-width="2"/>
     <path d="M127 201v191c0 5 4 9 9 9h168c5 0 9-4 9-9V201" stroke="#969693" stroke-opacity=".56" stroke-width="2"/>

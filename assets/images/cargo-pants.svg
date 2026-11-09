@@ -24,5 +24,8 @@
     <path d="m104 217 42 12m-39 6 38 11m191-29-42 12m39 6-38 11" stroke="#aaa" stroke-opacity=".35" stroke-width="2"/>
     <path d="M126 429h75m38 0h75" stroke="#a8a8a8" stroke-opacity=".42" stroke-width="3"/>
     <path d="M110 196 143 402m187-206-33 206" stroke="#fff" stroke-opacity=".08" stroke-width="5"/>
+    <path d="M148 212l-9 58m153-58 9 58" stroke="#E51F35" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M98 210l44 13m198-13-44 13" stroke="#E51F35" stroke-opacity=".85" stroke-width="2.5" stroke-linecap="round"/>
+    <rect x="112" y="226" width="6" height="14" rx="1" fill="#E51F35"/>
   </g>
 </svg>

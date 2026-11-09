@@ -29,7 +29,7 @@ function createProductCard(product, index) {
 
   const tag = document.createElement("span");
   tag.className = "product-tag";
-  tag.textContent = "Article démo";
+  tag.textContent = product.badge || "STUDIO YODO";
   const number = document.createElement("span");
   number.className = "visual-number";
   number.textContent = `Y-${String(index + 1).padStart(2, "0")}`;
@@ -47,7 +47,7 @@ function createProductCard(product, index) {
   const art = document.createElement("img");
   art.setAttribute("class", "product-art");
   art.src = `../assets/images/${product.image}`;
-  art.alt = `Illustration de démonstration : ${product.name}`;
+  art.alt = `${product.name} — ${product.detail}`;
   model.append(art);
   visual.append(tag, number, favorite, model);
 
@@ -95,7 +95,7 @@ function render() {
   const visibleProducts = getVisibleProducts();
   productGrid.replaceChildren(...visibleProducts.map(createProductCard));
   favoriteCount.textContent = String(favorites.size);
-  resultCount.textContent = `${visibleProducts.length} article${visibleProducts.length === 1 ? "" : "s"} de démonstration`;
+  resultCount.textContent = `${visibleProducts.length} pièce${visibleProducts.length === 1 ? "" : "s"} en collection`;
   emptyState.hidden = visibleProducts.length > 0;
 }
 

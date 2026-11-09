@@ -57,6 +57,36 @@ try {
       }
     });
 
+    if (document.querySelector(".lookbook-feature")) {
+      gsap.from(".lookbook-feature", {
+        autoAlpha: 0,
+        y: 22,
+        duration: 0.6,
+        stagger: 0.14,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".lookbook-grid",
+          start: "top 92%",
+          once: true
+        }
+      });
+    }
+
+    if (document.querySelector(".flagship-showcase .product-card")) {
+      gsap.from(".flagship-showcase .product-card", {
+        autoAlpha: 0,
+        y: 18,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".flagship-showcase",
+          start: "top 92%",
+          once: true
+        }
+      });
+    }
+
     gsap.from(".newsletter-form", {
       autoAlpha: 0,
       y: 12,

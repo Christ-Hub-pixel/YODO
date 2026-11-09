@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 500" fill="none">
+  <defs>
+    <linearGradient id="crop-body" x1="120" y1="100" x2="320" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset=".55" stop-color="#ededf2"/>
+      <stop offset="1" stop-color="#d8d8e0"/>
+    </linearGradient>
+    <linearGradient id="crop-sleeve" x1="60" y1="130" x2="140" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f7f7fa"/>
+      <stop offset="1" stop-color="#dfdfe6"/>
+    </linearGradient>
+    <filter id="crop-shadow" x="10" y="24" width="420" height="420" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+      <feOffset dy="12"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".28"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#crop-shadow)">
+    <!-- Cropped wide-shoulder silhouette matching lookbook-duo-women.jpg -->
+    <path d="m140 122-54 26-56 142 56 26 42-78v92c0 9 7 16 16 16h156c9 0 16-7 16-16v-92l42 78 56-26-56-142-54-26-44-16h-76l-44 16Z" fill="url(#crop-sleeve)" stroke="#b8b8c4" stroke-width="2" stroke-linejoin="round"/>
+    <!-- Volumetric white hood -->
+    <path d="M154 112c4-46 30-72 66-72s62 26 66 72l-32 32h-68l-32-32Z" fill="#f2f2f6" stroke="#b8b8c4" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M180 114c6-25 20-40 40-40s34 15 40 40l-20 18h-40l-20-18Z" fill="#18181c"/>
+    <!-- Main cropped torso -->
+    <path d="M134 132 98 150l-50 120 38 18 46-84v118c0 8 6 14 14 14h148c8 0 14-6 14-14V204l46 84 38-18-50-120-36-18-42-14h-88l-42 14Z" fill="url(#crop-body)" stroke="#b8b8c4" stroke-width="2" stroke-linejoin="round"/>
+    <!-- Crimson & Obsidian geometric paneling from female lookbook -->
+    <path d="M132 214l36-24 12 68-48 16v-60Zm176 0-36-24-12 68 48 16v-60Z" fill="#111114"/>
+    <path d="M132 202l40-26 6 16-46 28v-18Zm176 0-40-26-6 16 46 28v-18Z" fill="#E51F35"/>
+    <path d="M68 216l48 18-8 18-48-18 8-18Zm304 0-48 18 8 18 48-18-8-18Z" fill="#E51F35"/>
+    <path d="M60 234l48 18-10 22-48-18 10-22Zm320 0-48 18 10 22 48-18-10-22Z" fill="#141418"/>
+    <!-- Contrast black drawstrings with silver aglets -->
+    <path d="M196 144v68m48-68v68" stroke="#141418" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M196 206v10m48-10v10" stroke="#d0d0d8" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Ribbed cropped hem -->
+    <rect x="132" y="316" width="176" height="22" rx="6" fill="#e2e2e8"/>
+    <path d="M136 322h168" stroke="#c5c5ce" stroke-width="2"/>
+  </g>
+</svg>

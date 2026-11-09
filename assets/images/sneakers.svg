@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 500" fill="none">
+  <defs>
+    <linearGradient id="sneaker-upper" x1="80" y1="180" x2="360" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset=".65" stop-color="#ededf0"/>
+      <stop offset="1" stop-color="#d4d4da"/>
+    </linearGradient>
+    <linearGradient id="sneaker-sole" x1="60" y1="330" x2="380" y2="380" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f8f8fa"/>
+      <stop offset="1" stop-color="#dcdce2"/>
+    </linearGradient>
+    <filter id="sneaker-shadow" x="20" y="130" width="400" height="280" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+      <feOffset dy="16"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".35"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#sneaker-shadow)">
+    <!-- Low-top luxury streetwear court silhouette -->
+    <path d="M86 218c18-2 36 12 52 24 22-14 48-34 74-36 16-1 30 14 48 30 34 28 76 32 102 44 12 6 18 18 16 34H66c-4-24 2-62 12-82 2-8 4-14 8-14Z" fill="url(#sneaker-upper)" stroke="#b4b4c0" stroke-width="2" stroke-linejoin="round"/>
+    <!-- Black heel collar & counter -->
+    <path d="M86 218c15 0 30 10 44 21l-18 32-40-12c3-20 8-41 14-41Z" fill="#121215"/>
+    <!-- Signature YODO Crimson diagonal panel (#E51F35) -->
+    <path d="M182 254h38l-22 56h-36l20-56Z" fill="#E51F35"/>
+    <path d="M132 262l34 14-14 34-34-14 14-34Z" fill="#141418"/>
+    <!-- Laces & tongue -->
+    <path d="M198 208c14-2 26 8 36 20l-22 18-28-22c4-10 8-15 14-16Z" fill="#ffffff" stroke="#b4b4c0" stroke-width="1.8" stroke-linejoin="round"/>
+    <rect x="202" y="212" width="18" height="7" rx="2" fill="#E51F35"/>
+    <path d="M226 226l16-10m-4 20 16-10m-4 20 16-10m-4 20 16-10" stroke="#9696a4" stroke-width="6.5" stroke-linecap="round"/>
+    <path d="M226 226l16-10m-4 20 16-10m-4 20 16-10m-4 20 16-10" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Sculpted cup midsole & crimson outsole tread -->
+    <rect x="62" y="312" width="318" height="34" rx="10" fill="url(#sneaker-sole)" stroke="#b4b4c0" stroke-width="2"/>
+    <path d="M68 328h306" stroke="#c8c8d0" stroke-width="2"/>
+    <rect x="66" y="342" width="310" height="9" rx="4" fill="#E51F35"/>
+  </g>
+</svg>

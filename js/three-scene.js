@@ -92,83 +92,99 @@ function createRibKnitTexture() {
  * - Front: Minimalist chest emblem with YODO insignia and edition info.
  * - Back: Bold streetwear typographical statement block (visible during 360° turntable rotation).
  */
-function createBrandDecalTexture(isBack = false) {
+function createBrandDecalTexture(isBack = false, isLightGarment = false) {
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
+
+  const primaryFg = isLightGarment ? "#080808" : "#ffffff";
+  const secondaryFg = isLightGarment ? "#2a2a2e" : "#d8d8de";
+  const mutedFg = isLightGarment ? "#55555c" : "#888888";
 
   if (!isBack) {
     canvas.width = 512;
     canvas.height = 256;
     ctx.clearRect(0, 0, 512, 256);
 
-    // Signature red accent bar
-    ctx.fillStyle = "#e52335";
+    // Monochrome YODO CLOTHING BRAND chest logo (respecting official black/white logo)
+    ctx.fillStyle = primaryFg;
     ctx.fillRect(40, 48, 6, 96);
 
-    // YODO brandmark
-    ctx.fillStyle = "#f3f3f5";
-    ctx.font = "900 64px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    // YODO brandmark (wide geometric monochrome lettering)
+    ctx.save();
+    ctx.fillStyle = primaryFg;
+    ctx.font = "900 66px 'Arial Black', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
     ctx.textBaseline = "top";
-    ctx.fillText("YODO", 60, 44);
+    ctx.scale(1.22, 1.0);
+    ctx.fillText("YODO", 50, 42);
+    ctx.restore();
 
-    // Subtitle
-    ctx.fillStyle = "#a8a8b2";
-    ctx.font = "700 20px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-    ctx.fillText("STUDIO ARCHIVE / 2026", 62, 118);
+    // Official subtitle: CLOTHING BRAND
+    ctx.fillStyle = secondaryFg;
+    ctx.font = "700 18px 'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
+    ctx.fillText("C L O T H I N G   B R A N D", 62, 118);
 
-    // Spec note
-    ctx.fillStyle = "#686874";
-    ctx.font = "600 13px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    // Monochrome spec note
+    ctx.fillStyle = mutedFg;
+    ctx.font = "600 13px 'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
     ctx.fillText("PARIS · TOKYO · ABIDJAN · 520 GSM", 62, 148);
   } else {
     canvas.width = 1024;
     canvas.height = 1024;
     ctx.clearRect(0, 0, 1024, 1024);
 
-    // Red frame border
-    ctx.strokeStyle = "rgba(229, 35, 53, 0.45)";
+    // Monochrome frame border
+    ctx.strokeStyle = isLightGarment ? "rgba(8, 8, 8, 0.55)" : "rgba(255, 255, 255, 0.45)";
     ctx.lineWidth = 4;
     ctx.strokeRect(60, 60, 904, 904);
 
-    // Accent line
-    ctx.fillStyle = "#e52335";
+    // Monochrome top rule
+    ctx.fillStyle = primaryFg;
     ctx.fillRect(90, 90, 844, 4);
 
-    // Bold title
-    ctx.fillStyle = "#ffffff";
+    // Bold monochrome YODO logo
+    ctx.save();
+    ctx.fillStyle = primaryFg;
     ctx.textAlign = "center";
-    ctx.font = "900 132px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-    ctx.fillText("Y O D O", 512, 250);
+    ctx.font = "900 136px 'Arial Black', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
+    ctx.scale(1.18, 1.0);
+    ctx.fillText("YODO", 512 / 1.18, 240);
+    ctx.restore();
 
-    // Divider bar
-    ctx.fillStyle = "#e52335";
-    ctx.fillRect(362, 290, 300, 6);
+    // Official subtitle: CLOTHING BRAND
+    ctx.fillStyle = secondaryFg;
+    ctx.textAlign = "center";
+    ctx.font = "700 32px 'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
+    ctx.fillText("C L O T H I N G   B R A N D", 512, 305);
+
+    // Monochrome divider bar
+    ctx.fillStyle = primaryFg;
+    ctx.fillRect(362, 336, 300, 5);
 
     // Subtitle
-    ctx.fillStyle = "#e2e2e8";
-    ctx.font = "700 36px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-    ctx.fillText("OVERSIZED FLEECE / 01", 512, 380);
+    ctx.fillStyle = secondaryFg;
+    ctx.font = "700 34px 'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
+    ctx.fillText("OVERSIZED FLEECE / 01", 512, 410);
 
-    ctx.fillStyle = "#9a9aa4";
-    ctx.font = "600 24px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-    ctx.fillText("HAUTE QUALITÉ · MOLLETON ÉPAIS", 512, 430);
-    ctx.fillText("PARIS  ·  TOKYO  ·  ABIDJAN", 512, 480);
+    ctx.fillStyle = mutedFg;
+    ctx.font = "600 24px 'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
+    ctx.fillText("HAUTE QUALITÉ · MOLLETON ÉPAIS", 512, 458);
+    ctx.fillText("PARIS  ·  TOKYO  ·  ABIDJAN", 512, 502);
 
-    // Graphic info panel
-    ctx.fillStyle = "rgba(255, 255, 255, 0.08)";
+    // Monochrome graphic info panel
+    ctx.fillStyle = isLightGarment ? "rgba(8, 8, 8, 0.06)" : "rgba(255, 255, 255, 0.08)";
     ctx.fillRect(140, 560, 744, 280);
 
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "700 28px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    ctx.fillStyle = primaryFg;
+    ctx.font = "700 28px 'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
     ctx.fillText("LIMITED EDITION 2026", 512, 630);
 
-    ctx.fillStyle = "#8a8a95";
-    ctx.font = "500 20px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    ctx.fillStyle = mutedFg;
+    ctx.font = "500 20px 'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
     ctx.fillText("100% COTTON FRENCH TERRY — WATER REPELLENT COATING", 512, 680);
-    ctx.fillText("ALL RIGHTS RESERVED © YODO ARCHIVE", 512, 730);
+    ctx.fillText("ALL RIGHTS RESERVED © YODO CLOTHING BRAND", 512, 730);
 
-    ctx.fillStyle = "#e52335";
-    ctx.fillRect(462, 780, 100, 6);
+    ctx.fillStyle = primaryFg;
+    ctx.fillRect(462, 780, 100, 5);
   }
 
   const texture = new THREE.CanvasTexture(canvas);
@@ -202,8 +218,10 @@ function createStreetwearGarment() {
   // Procedural textures
   const fabricBump = createFabricBumpTexture();
   const ribKnitBump = createRibKnitTexture();
-  const frontDecalMap = createBrandDecalTexture(false);
-  const backDecalMap = createBrandDecalTexture(true);
+  const frontDecalMapDark = createBrandDecalTexture(false, false);
+  const backDecalMapDark = createBrandDecalTexture(true, false);
+  const frontDecalMapLight = createBrandDecalTexture(false, true);
+  const backDecalMapLight = createBrandDecalTexture(true, true);
 
   // Materials palette
   const hoodieFabricMaterial = new THREE.MeshPhysicalMaterial({
@@ -250,15 +268,41 @@ function createStreetwearGarment() {
   });
 
   const pedestalMaterial = new THREE.MeshStandardMaterial({
-    color: 0x0c0c0e,              // Ultra-matte obsidian
-    roughness: 0.65,
-    metalness: 0.20
+    color: 0x08080a,              // Ultra-matte obsidian
+    roughness: 0.45,
+    metalness: 0.35
+  });
+
+  const chromePodiumMaterial = new THREE.MeshPhysicalMaterial({
+    color: 0xd8d8e2,              // Brushed showroom chrome
+    roughness: 0.16,
+    metalness: 0.96,
+    clearcoat: 0.45,
+    clearcoatRoughness: 0.14
+  });
+
+  const podiumTopMaterial = new THREE.MeshPhysicalMaterial({
+    color: 0x0b0b0e,              // Polished dark obsidian mirror top
+    roughness: 0.14,
+    metalness: 0.82,
+    clearcoat: 0.90,
+    clearcoatRoughness: 0.10
   });
 
   const yodoAccentMaterial = new THREE.MeshStandardMaterial({
-    color: 0xe52335,              // Brand crimson
-    roughness: 0.35,
-    metalness: 0.20
+    color: 0xe52335,              // Brand crimson (#E51F35 / #E52335)
+    emissive: 0xe51f35,
+    emissiveIntensity: 0.28,
+    roughness: 0.32,
+    metalness: 0.22
+  });
+
+  const ledHaloMaterial = new THREE.MeshStandardMaterial({
+    color: 0xe51f35,
+    emissive: 0xe51f35,
+    emissiveIntensity: 3.2,
+    roughness: 0.15,
+    metalness: 0.10
   });
 
   const innerLiningMaterial = new THREE.MeshStandardMaterial({
@@ -269,28 +313,97 @@ function createStreetwearGarment() {
   });
 
   // ----------------------------------------------------
-  // 1. Studio Display Pedestal & Exhibition Mount
+  // 1. Luxury Chrome Showroom Podium & Red LED Halo
   // ----------------------------------------------------
   const baseDisc = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.85, 0.92, 0.06, 48),
+    new THREE.CylinderGeometry(0.88, 0.92, 0.04, 64),
     pedestalMaterial
   );
-  baseDisc.position.set(0, 0.03, 0);
+  baseDisc.position.set(0, 0.02, 0);
   baseDisc.receiveShadow = true;
   root.add(baseDisc);
 
-  const accentRing = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.86, 0.86, 0.012, 48),
-    yodoAccentMaterial
+  // Main brushed-chrome circular showroom podium drum
+  const podiumDrum = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.90, 0.90, 0.20, 64),
+    chromePodiumMaterial
   );
-  accentRing.position.set(0, 0.066, 0);
+  podiumDrum.position.set(0, 0.14, 0);
+  podiumDrum.castShadow = true;
+  podiumDrum.receiveShadow = true;
+  root.add(podiumDrum);
+
+  // Dark obsidian reflective top plate of the podium
+  const podiumTopPlate = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.885, 0.885, 0.016, 64),
+    podiumTopMaterial
+  );
+  podiumTopPlate.position.set(0, 0.246, 0);
+  podiumTopPlate.receiveShadow = true;
+  root.add(podiumTopPlate);
+
+  // Upper chrome bevel ring
+  const topBevelRing = new THREE.Mesh(
+    new THREE.TorusGeometry(0.892, 0.010, 16, 64),
+    chromePodiumMaterial
+  );
+  topBevelRing.position.set(0, 0.242, 0);
+  topBevelRing.rotation.x = Math.PI / 2;
+  root.add(topBevelRing);
+
+  // Glowing Red LED Underglow Halo Ring at podium base
+  const accentRing = new THREE.Mesh(
+    new THREE.TorusGeometry(0.906, 0.015, 16, 64),
+    ledHaloMaterial
+  );
+  accentRing.position.set(0, 0.036, 0);
+  accentRing.rotation.x = Math.PI / 2;
   root.add(accentRing);
 
+  // Secondary upper crimson trim line on podium
+  const upperLedTrim = new THREE.Mesh(
+    new THREE.TorusGeometry(0.902, 0.005, 12, 64),
+    ledHaloMaterial
+  );
+  upperLedTrim.position.set(0, 0.232, 0);
+  upperLedTrim.rotation.x = Math.PI / 2;
+  root.add(upperLedTrim);
+
+  // Radial Red LED floor reflection halo canvas texture
+  const glowCanvas = document.createElement("canvas");
+  glowCanvas.width = 256;
+  glowCanvas.height = 256;
+  const glowCtx = glowCanvas.getContext("2d");
+  const grad = glowCtx.createRadialGradient(128, 128, 48, 128, 128, 126);
+  grad.addColorStop(0.0, "rgba(229, 31, 53, 0.0)");
+  grad.addColorStop(0.58, "rgba(229, 31, 53, 0.55)");
+  grad.addColorStop(0.72, "rgba(229, 31, 53, 0.28)");
+  grad.addColorStop(1.0, "rgba(229, 31, 53, 0.0)");
+  glowCtx.fillStyle = grad;
+  glowCtx.fillRect(0, 0, 256, 256);
+  const glowTex = new THREE.CanvasTexture(glowCanvas);
+  glowTex.colorSpace = THREE.SRGBColorSpace;
+
+  const floorGlowMaterial = new THREE.MeshBasicMaterial({
+    map: glowTex,
+    transparent: true,
+    opacity: 0.92,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending
+  });
+  const floorGlowDisc = new THREE.Mesh(
+    new THREE.PlaneGeometry(2.55, 2.55),
+    floorGlowMaterial
+  );
+  floorGlowDisc.rotation.x = -Math.PI / 2;
+  floorGlowDisc.position.set(0, 0.003, 0);
+  root.add(floorGlowDisc);
+
   const riserColumn = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.06, 0.07, 0.94, 32),
+    new THREE.CylinderGeometry(0.035, 0.045, 0.76, 32),
     pedestalMaterial
   );
-  riserColumn.position.set(0, 0.53, 0);
+  riserColumn.position.set(0, 0.62, 0);
   riserColumn.castShadow = true;
   riserColumn.receiveShadow = true;
   root.add(riserColumn);
@@ -415,7 +528,7 @@ function createStreetwearGarment() {
   const frontDecal = new THREE.Mesh(
     new THREE.PlaneGeometry(0.18, 0.09),
     new THREE.MeshBasicMaterial({
-      map: frontDecalMap,
+      map: frontDecalMapDark,
       transparent: true,
       opacity: 0.94,
       depthWrite: false,
@@ -432,7 +545,7 @@ function createStreetwearGarment() {
   const backDecal = new THREE.Mesh(
     new THREE.PlaneGeometry(0.42, 0.42),
     new THREE.MeshBasicMaterial({
-      map: backDecalMap,
+      map: backDecalMapDark,
       transparent: true,
       opacity: 0.90,
       depthWrite: false,
@@ -455,16 +568,30 @@ function createStreetwearGarment() {
     const wristPt = new THREE.Vector3(side * 0.58, 1.08, 0.10);
     const cuffEndPt = new THREE.Vector3(side * 0.56, 0.98, 0.12);
 
+    const upperSleeveAxis = new THREE.Vector3().subVectors(elbowPt, shoulderPt).normalize();
+    const forearmAxis = new THREE.Vector3().subVectors(wristPt, elbowPt).normalize();
+    const elbowBisectorAxis = new THREE.Vector3().addVectors(upperSleeveAxis, forearmAxis).normalize();
+
     // Upper sleeve
     root.add(createOrientedCylinder(shoulderPt, elbowPt, 0.18, 0.15, hoodieFabricMaterial));
 
-    // Elbow gathering crease fold ring
+    // Signature YODO red dropped-shoulder sleeve piping (orthogonal to upperSleeveAxis)
+    const pipingPt = new THREE.Vector3().lerpVectors(shoulderPt, elbowPt, 0.36);
+    const sleevePiping = new THREE.Mesh(
+      new THREE.TorusGeometry(0.171, 0.0075, 12, 32),
+      yodoAccentMaterial
+    );
+    sleevePiping.position.copy(pipingPt);
+    sleevePiping.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), upperSleeveAxis);
+    root.add(sleevePiping);
+
+    // Elbow gathering crease fold ring (orthogonal to elbow bisector axis)
     const elbowFold = new THREE.Mesh(
       new THREE.TorusGeometry(0.155, 0.022, 12, 24),
       hoodieFabricMaterial
     );
     elbowFold.position.copy(elbowPt);
-    elbowFold.rotation.y = side * 0.3;
+    elbowFold.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), elbowBisectorAxis);
     elbowFold.castShadow = true;
     root.add(elbowFold);
 
@@ -581,6 +708,21 @@ function createStreetwearGarment() {
   rightAglet.rotation.z = -0.10;
   root.add(rightAglet);
 
+  root.userData.materials = {
+    hoodieFabricMaterial,
+    ribKnitMaterial,
+    cordMaterial,
+    ledHaloMaterial,
+    floorGlowMaterial,
+    yodoAccentMaterial,
+    frontDecalMaterial: frontDecal.material,
+    backDecalMaterial: backDecal.material,
+    frontDecalMapDark,
+    backDecalMapDark,
+    frontDecalMapLight,
+    backDecalMapLight
+  };
+
   return root;
 }
 
@@ -685,6 +827,15 @@ export async function initThreeScene() {
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.35);
   scene.add(ambientLight);
 
+  // 7. Showroom Podium Red LED Underglow Point Lights (#E51F35)
+  const podiumRedLightFront = new THREE.PointLight(0xe51f35, 2.2, 4.2);
+  podiumRedLightFront.position.set(0.35, 0.18, 0.95);
+  scene.add(podiumRedLightFront);
+
+  const podiumRedLightSide = new THREE.PointLight(0xe51f35, 2.4, 4.5);
+  podiumRedLightSide.position.set(0.95, 0.35, -0.35);
+  scene.add(podiumRedLightSide);
+
   // ----------------------------------------------------
   // Dynamic Contact Shadow Ground Plane
   // ----------------------------------------------------
@@ -751,6 +902,7 @@ export async function initThreeScene() {
   let lastPointerX = 0;
   let lastPointerY = 0;
   let interactionUntil = 0;
+  let autoRotationSpeed = 0.16;
 
   function canAnimate() {
     return inView &&
@@ -770,7 +922,7 @@ export async function initThreeScene() {
 
     const delta = Math.min(clock.getDelta(), 0.05);
     if (performance.now() > interactionUntil && activePointer === null) {
-      modelRoot.rotation.y += delta * 0.12;
+      modelRoot.rotation.y += delta * autoRotationSpeed;
     }
     draw();
     frame = window.requestAnimationFrame(animate);
@@ -805,6 +957,63 @@ export async function initThreeScene() {
   stage.addEventListener("yodo:zoom", (event) => {
     const delta = typeof event.detail?.delta === "number" ? event.detail.delta : 0.35;
     setZoom(delta);
+  });
+
+  stage.addEventListener("yodo:colorway", (event) => {
+    const mats = streetwearGarment.userData?.materials;
+    if (!mats) return;
+    const variant = event.detail?.variant || "noir-rouge";
+    if (variant === "blanc-rouge") {
+      mats.hoodieFabricMaterial.color.setHex(0xe8e8ed);
+      mats.hoodieFabricMaterial.sheenColor.setHex(0xffffff);
+      mats.ribKnitMaterial.color.setHex(0xdcdce2);
+      mats.ribKnitMaterial.sheenColor.setHex(0xf4f4f8);
+      if (mats.cordMaterial) mats.cordMaterial.color.setHex(0x18181c);
+      if (mats.frontDecalMaterial && mats.frontDecalMapLight) {
+        mats.frontDecalMaterial.map = mats.frontDecalMapLight;
+        mats.frontDecalMaterial.needsUpdate = true;
+      }
+      if (mats.backDecalMaterial && mats.backDecalMapLight) {
+        mats.backDecalMaterial.map = mats.backDecalMapLight;
+        mats.backDecalMaterial.needsUpdate = true;
+      }
+    } else {
+      mats.hoodieFabricMaterial.color.setHex(0x181819);
+      mats.hoodieFabricMaterial.sheenColor.setHex(0x76767c);
+      mats.ribKnitMaterial.color.setHex(0x141415);
+      mats.ribKnitMaterial.sheenColor.setHex(0x68686e);
+      if (mats.cordMaterial) mats.cordMaterial.color.setHex(0x222224);
+      if (mats.frontDecalMaterial && mats.frontDecalMapDark) {
+        mats.frontDecalMaterial.map = mats.frontDecalMapDark;
+        mats.frontDecalMaterial.needsUpdate = true;
+      }
+      if (mats.backDecalMaterial && mats.backDecalMapDark) {
+        mats.backDecalMaterial.map = mats.backDecalMapDark;
+        mats.backDecalMaterial.needsUpdate = true;
+      }
+    }
+    draw();
+  });
+
+  stage.addEventListener("yodo:led", (event) => {
+    const mats = streetwearGarment.userData?.materials;
+    const raw = typeof event.detail?.intensity === "number" ? event.detail.intensity : 85;
+    const factor = THREE.MathUtils.clamp(raw / 100, 0.15, 1.5);
+    if (mats?.ledHaloMaterial) {
+      mats.ledHaloMaterial.emissiveIntensity = 3.6 * factor;
+    }
+    if (mats?.floorGlowMaterial) {
+      mats.floorGlowMaterial.opacity = THREE.MathUtils.clamp(0.95 * factor, 0.2, 1.0);
+    }
+    rimKickerRed.intensity = 2.6 * factor;
+    podiumRedLightFront.intensity = 2.4 * factor;
+    podiumRedLightSide.intensity = 2.6 * factor;
+    draw();
+  });
+
+  stage.addEventListener("yodo:speed", (event) => {
+    const raw = typeof event.detail?.speed === "number" ? event.detail.speed : 35;
+    autoRotationSpeed = THREE.MathUtils.clamp((raw / 100) * 0.45, 0, 0.6);
   });
 
   stage.addEventListener("yodo:scroll-progress", (event) => {
