@@ -23,9 +23,14 @@ function createProductCard(product, index) {
   const card = document.createElement("article");
   card.className = "product-card";
 
+  const isPhoto = !product.image.endsWith(".svg");
   const visual = document.createElement("div");
-  visual.className = `product-visual ${visualClasses[index % visualClasses.length]}`;
-  visual.style.backgroundColor = product.color;
+  visual.className = `product-visual ${visualClasses[index % visualClasses.length]}${isPhoto ? " is-photo" : ""}`;
+  if (isPhoto) {
+    visual.style.background = product.color;
+  } else {
+    visual.style.backgroundColor = product.color;
+  }
 
   const tag = document.createElement("span");
   tag.className = "product-tag";
@@ -48,6 +53,7 @@ function createProductCard(product, index) {
   art.setAttribute("class", "product-art");
   art.src = `../assets/images/${product.image}`;
   art.alt = `${product.name} — ${product.detail}`;
+  art.loading = "lazy";
   model.append(art);
   visual.append(tag, number, favorite, model);
 

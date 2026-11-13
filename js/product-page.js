@@ -42,12 +42,45 @@ if (!product) {
   });
 
   const visual = document.querySelector("#product-visual");
-  visual.style.backgroundColor = product.color;
+  const isPhoto = !product.image.endsWith(".svg");
+  if (isPhoto) {
+    visual.classList.add("is-photo");
+    visual.style.background = product.color;
+  } else {
+    visual.style.backgroundColor = product.color;
+  }
   const art = document.createElement("img");
   art.className = `product-art ${product.symbol}`;
   art.src = `../assets/images/${product.image}`;
   art.alt = `${product.name} — ${product.detail}`;
   visual.append(art);
+
+  const thumbs = document.querySelector("#product-thumbs");
+  const gallery = product.images?.length ? product.images : [product.image];
+  if (thumbs && gallery.length > 1) {
+    thumbs.hidden = false;
+    gallery.forEach((src, index) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `product-thumb${index === 0 ? " is-active" : ""}`;
+      btn.style.background = product.color;
+      btn.setAttribute("aria-label", `Vue ${index + 1} de ${product.name}`);
+      btn.setAttribute("aria-pressed", String(index === 0));
+      const img = document.createElement("img");
+      img.src = `../assets/images/${src}`;
+      img.alt = "";
+      btn.append(img);
+      btn.addEventListener("click", () => {
+        art.src = `../assets/images/${src}`;
+        thumbs.querySelectorAll(".product-thumb").forEach((other, i) => {
+          const active = i === index;
+          other.classList.toggle("is-active", active);
+          other.setAttribute("aria-pressed", String(active));
+        });
+      });
+      thumbs.append(btn);
+    });
+  }
 
   const sizeSelect = document.querySelector("#product-size");
   product.sizes.forEach((size) => {
