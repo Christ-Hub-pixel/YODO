@@ -882,9 +882,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .product-card:hover .product-3d { transform: rotateY(-10deg) rotateX(4deg) translateY(-6px) scale(1.04); }
 .product-card:hover .product-visual.is-photo .product-3d { transform: scale(1.04); }
 .product-info { display: flex; justify-content: space-between; align-items: flex-start; gap: .75rem; padding: 16px 2px 0; }
-.product-info h3 { margin: 0; font-size: 14px; font-weight: 800; letter-spacing: -.01em; color: var(--ink); }
-.product-info p { margin: 6px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
-.product-info > span { flex: 0 0 auto; color: var(--ink); font-size: 13px; font-weight: 800; }
+.product-info h3 { margin: 0; font-size: 14.5px; font-weight: 800; letter-spacing: -.01em; color: var(--ink); }
+.product-info p { margin: 6px 0 0; color: #4a4a46; font-size: 12.5px; line-height: 1.55; }
+.product-info > span { flex: 0 0 auto; color: var(--ink); font-size: 13.5px; font-weight: 800; }
 .product-detail-link {
   display: inline-flex;
   align-items: center;
@@ -1102,12 +1102,22 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   letter-spacing: .12em;
 }
 .manifesto-side { position: absolute; bottom: 26px; left: 29px; font-size: 9px; font-weight: 700; letter-spacing: .12em; }
-.manifesto-copy { align-self: center; max-width: 550px; padding: 5rem 11% 5rem 13%; }
-.manifesto-copy .section-kicker { color: var(--accent); }
+.manifesto-copy {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: none;
+  padding: 5rem 11% 5rem 11%;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle at 88% 18%, rgba(229, 31, 53, 0.14), transparent 58%);
+}
+.manifesto-copy .section-kicker { color: var(--accent); letter-spacing: .16em; }
 .manifesto h2 { margin: 1.2rem 0 1.5rem; color: var(--white); }
-.manifesto h2 span { color: rgba(255, 255, 255, 0.62); }
-.manifesto-copy > p:not(.section-kicker) { max-width: 390px; margin: 0; color: rgba(255, 255, 255, 0.84); font-size: 14px; line-height: 1.8; }
-.manifesto .text-link { color: var(--white); }
+.manifesto h2 span { color: rgba(255, 255, 255, 0.78); }
+.manifesto-copy > p:not(.section-kicker) { max-width: 430px; margin: 0; color: rgba(255, 255, 255, 0.88); font-size: 15px; line-height: 1.85; }
+.manifesto .text-link { align-self: flex-start; color: var(--white); }
 .manifesto .text-link:hover { color: var(--accent); }
 .text-link {
   display: inline-flex;
@@ -1279,7 +1289,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .manifesto { grid-template-columns: 1fr; }
   .manifesto-art { min-height: 330px; }
   .manifesto-disc { width: min(72vw, 350px); }
-  .manifesto-copy { padding: 3.7rem 24px 4.2rem; }
+  .manifesto-copy { padding: 3.7rem 24px 4.2rem; border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.08); }
   .newsletter { display: block; padding-top: 4.5rem; padding-bottom: 4.3rem; }
   .newsletter-form { margin-top: 2.4rem; }
   .site-footer { min-height: 130px; display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 1.4rem 18px; }
