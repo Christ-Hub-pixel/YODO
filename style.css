@@ -1055,8 +1055,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   grid-template-columns: 1fr 1fr;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: var(--surface);
-  color: var(--ink);
+  background: #08080a;
+  color: var(--white);
 }
 .manifesto-art { min-height: 540px; position: relative; overflow: hidden; background: #08080a; color: var(--white); }
 .manifesto-bg {
@@ -1104,9 +1104,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .manifesto-side { position: absolute; bottom: 26px; left: 29px; font-size: 9px; font-weight: 700; letter-spacing: .12em; }
 .manifesto-copy { align-self: center; max-width: 550px; padding: 5rem 11% 5rem 13%; }
 .manifesto-copy .section-kicker { color: var(--accent); }
-.manifesto h2 { margin: 1.2rem 0 1.5rem; color: var(--ink); }
-.manifesto h2 span { color: var(--muted); }
-.manifesto-copy > p:not(.section-kicker) { max-width: 390px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.manifesto h2 { margin: 1.2rem 0 1.5rem; color: var(--white); }
+.manifesto h2 span { color: rgba(255, 255, 255, 0.62); }
+.manifesto-copy > p:not(.section-kicker) { max-width: 390px; margin: 0; color: rgba(255, 255, 255, 0.84); font-size: 14px; line-height: 1.8; }
+.manifesto .text-link { color: var(--white); }
+.manifesto .text-link:hover { color: var(--accent); }
 .text-link {
   display: inline-flex;
   align-items: center;
