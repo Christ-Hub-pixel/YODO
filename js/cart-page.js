@@ -6,13 +6,15 @@ const emptyState = document.querySelector("#cart-page-empty");
 const summary = document.querySelector("#cart-page-summary");
 const status = document.querySelector("#cart-page-status");
 const orderLink = document.querySelector("#whatsapp-order");
+const orderLink2 = document.querySelector("#whatsapp-order-2");
 const currency = new Intl.NumberFormat("fr-CI", {
   style: "currency",
   currency: "XOF",
   maximumFractionDigits: 0
 });
 const cart = readCart(PRODUCTS);
-const whatsappNumber = "2250151135690";
+const whatsappNumberPrimary = "2250708924626";
+const whatsappNumberSecondary = "2250504802922";
 
 function lineKey(line) {
   return JSON.stringify([line.productId, line.size, line.color]);
@@ -73,7 +75,7 @@ function createCartLine(line) {
   return article;
 }
 
-function buildWhatsAppUrl() {
+function buildWhatsAppUrl(phoneNumber) {
   const lines = [...cart.values()].map((line) => {
     const product = PRODUCTS[line.productId];
     return `• ${product.name} (${line.size}, ${line.color}) × ${line.quantity} - ${currency.format(product.price * line.quantity)}`;
@@ -83,7 +85,7 @@ function buildWhatsAppUrl() {
     0
   );
   const message = [
-    "Bonjour, je souhaite commander :",
+    "Bonjour YODO, je souhaite commander :",
     "",
     ...lines,
     "",
@@ -91,7 +93,7 @@ function buildWhatsAppUrl() {
     "",
     "Pouvez-vous me confirmer la disponibilité et les modalités de livraison ?"
   ].join("\n");
-  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 }
 
 function render() {
@@ -104,7 +106,11 @@ function render() {
   emptyState.hidden = lines.length > 0;
   summary.hidden = lines.length === 0;
   orderLink.hidden = lines.length === 0;
-  if (lines.length > 0) orderLink.href = buildWhatsAppUrl();
+  if (orderLink2) orderLink2.hidden = lines.length === 0;
+  if (lines.length > 0) {
+    orderLink.href = buildWhatsAppUrl(whatsappNumberPrimary);
+    if (orderLink2) orderLink2.href = buildWhatsAppUrl(whatsappNumberSecondary);
+  }
   window.dispatchEvent(new Event("yodo:cart-updated"));
 }
 

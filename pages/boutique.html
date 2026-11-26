@@ -4,20 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#FFFFFF">
-    <meta name="description" content="Parcourez le Showroom multimarque YODO : vêtements streetwear de luxe, éclairage studio, homme et femme.">
+    <meta name="description" content="Parcourez la boutique officielle YODO : T-shirts 10 000 F CFA et Manches Longues 15 000 F CFA.">
     <title>Boutique - YODO</title>
     <link rel="stylesheet" href="../style.css">
   </head>
   <body data-collection="all">
-    <div class="announcement">YODO - Showroom Streetwear <span aria-hidden="true">✳</span> Catalogue Complet · Édition 2026</div>
+    <div class="announcement">YODO Clothing Brand <span aria-hidden="true">✳</span> Catalogue Complet · Édition 2026</div>
     <header class="site-header">
-      <a class="brand" href="../index.html" aria-label="YODO, accueil"><img src="../logo.jpeg" alt="YODO"></a>
+      <a class="brand" href="../index.html" aria-label="YODO, accueil"><img src="../assets/images/logo-yodo-brand.jpg" alt="YODO"></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
       <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
         <a href="boutique.html" aria-current="page">Boutique</a>
         <a href="homme.html">Homme</a>
         <a href="femme.html">Femme</a>
-        <a href="streetwear.html">Streetwear</a>
         <a href="../index.html#histoire">À propos</a>
       </nav>
       <a class="cart-trigger" href="panier.html" data-cart-link aria-label="Ouvrir le panier, 0 article">
@@ -30,41 +29,70 @@
     </header>
     <main class="catalog-page section-wrap">
       <a class="back-link" href="../index.html">← Accueil</a>
-      <section class="collection-hero-banner" aria-labelledby="boutique-title">
-        <div class="collection-banner-copy">
-          <p class="section-kicker">La sélection multimarque · Galerie Studio</p>
-          <h1 id="boutique-title">Le Showroom<br><span>YODO.</span></h1>
-          <p>Toutes les pièces des vestiaires Homme, Femme et Streetwear réunies dans notre galerie noire et rouge <code class="hex-badge">#E51F35</code>.</p>
-        </div>
-        <div class="collection-banner-media">
-          <img src="../assets/images/showroom-architecture.jpg" alt="Architecture intérieure du showroom YODO en marbre noir, néons rouges et podium circulaire chromé">
-          <span class="banner-caption">ARCHITECTURE SHOWROOM · 360°</span>
+
+      <section class="editorial-hero-banner" aria-labelledby="boutique-title">
+        <img class="editorial-hero-bg" src="../assets/images/lookbook-yodo-models.jpg" alt="Trois mannequins portant les créations YODO">
+        <div class="editorial-hero-scrim" aria-hidden="true"></div>
+        <div class="editorial-hero-content">
+          <div class="editorial-hero-left">
+            <h1 id="boutique-title">Le Showroom<br><span>YODO.</span></h1>
+            <div class="editorial-hero-pills">
+              <a class="editorial-pill-primary" href="#product-grid">Voir le drop <span aria-hidden="true">→</span></a>
+              <a class="editorial-pill-ghost" href="homme.html">Collection Homme</a>
+            </div>
+            <div class="editorial-hero-tags">
+              <span>Coton lourd 280g</span>
+              <span>Édition Studio</span>
+              <span>Livraison rapide</span>
+            </div>
+          </div>
+          <a class="editorial-spotlight-card" href="produit.html?id=tee-asap-flag-bw">
+            <div class="spotlight-top">
+              <img src="../assets/images/products/tee-asap-flag-bw/view-1.jpg" alt="T-shirt A$AP Rocky Flag B&amp;W">
+              <div>
+                <small>PIÈCE PHARE</small>
+                <strong>T-shirt A$AP Flag B&amp;W</strong>
+                <span>10 000 F CFA · En stock</span>
+              </div>
+            </div>
+            <span class="spotlight-cta">VOIR LA PIÈCE</span>
+          </a>
         </div>
       </section>
-      <div class="catalog-controls">
-        <label class="catalog-search" for="catalog-search">Rechercher un article
-          <input id="catalog-search" type="search" placeholder="Nom, coupe ou matière" autocomplete="off">
+
+      <section class="bms-promo-banner" aria-label="Offre en cours">
+        <div class="bms-promo-copy">
+          <strong>YODO DROP</strong>
+          <span>T-SHIRTS 10 000 F · MANCHES LONGUES 15 000 F</span>
+        </div>
+        <div class="bms-countdown" aria-label="Temps restant">
+          <div><strong id="countdown-hours">21</strong><span>H</span></div>
+          <div><strong id="countdown-mins">17</strong><span>MIN</span></div>
+          <div><strong id="countdown-secs">07</strong><span>SEC</span></div>
+        </div>
+      </section>
+      <nav class="bms-category-tabs" id="category-tabs" role="tablist" aria-label="Catégories">
+        <button type="button" role="tab" class="bms-tab is-active" data-category="all" aria-selected="true">TOUT VOIR</button>
+        <button type="button" role="tab" class="bms-tab" data-category="tshirt" aria-selected="false">T-SHIRTS</button>
+        <button type="button" role="tab" class="bms-tab" data-category="longsleeve" aria-selected="false">MANCHES LONGUES</button>
+        <button type="button" role="tab" class="bms-tab" data-category="promo" aria-selected="false">PROMO</button>
+        <button type="button" class="bms-tab bms-tab-fav" id="show-favorites" aria-pressed="false">FAVORIS (<span id="favorite-count">0</span>)</button>
+      </nav>
+      <div class="bms-toolbar">
+        <label class="bms-search-inline" for="catalog-search">
+          <span class="sr-only">Rechercher un article</span>
+          <input id="catalog-search" type="search" placeholder="Rechercher une pièce…" autocomplete="off">
         </label>
-        <label class="catalog-category" for="category-filter">Catégorie
-          <select id="category-filter">
-            <option value="all">Toutes les catégories</option>
-            <option value="haut">Hauts</option>
-            <option value="veste">Vestes</option>
-            <option value="bas">Bas</option>
-            <option value="accessoire">Sneakers &amp; Accessoires</option>
-          </select>
-        </label>
-        <button class="filter-button favorites-filter" id="show-favorites" type="button" aria-pressed="false">Favoris <span id="favorite-count">0</span></button>
+        <p id="filter-count" class="bms-count" aria-live="polite"></p>
       </div>
-      <div class="catalog-result-line"><p id="filter-count" aria-live="polite"></p><p>Tarifs Showroom · F CFA</p></div>
-      <div class="product-grid" id="product-grid"></div>
+      <div class="product-grid bms-grid" id="product-grid"></div>
       <p class="product-empty" id="product-empty" role="status" hidden>Aucun article ne correspond à ces critères. Modifiez la recherche ou les filtres.</p>
-      <p class="catalog-demo-note">Pièces et variantes disponibles en édition limitée. Disponibilité et expédition confirmées sur WhatsApp.</p>
+      <p class="catalog-demo-note">Pièces disponibles en édition limitée. Disponibilité et expédition confirmées sur WhatsApp.</p>
     </main>
     <footer class="site-footer">
       <a class="footer-brand" href="../index.html" aria-label="YODO, retour à l’accueil">YODO<span>®</span></a>
-      <p>Votre boutique multimarque.</p>
-      <div class="footer-links"><a href="boutique.html">La boutique</a><a href="../index.html#histoire">Nos marques</a><a href="panier.html">Panier</a></div>
+      <p>YODO Clothing Brand.</p>
+      <div class="footer-links"><a href="boutique.html">La boutique</a><a href="homme.html">Homme</a><a href="femme.html">Femme</a><a href="panier.html">Panier</a></div>
       <small>© YODO 2026</small>
     </footer>
     <script type="module" src="../js/site-header.js"></script>

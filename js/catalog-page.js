@@ -1,43 +1,81 @@
-import { PRODUCTS } from "./products.js";
+import { PRODUCTS, CATEGORY_META, CATEGORY_ORDER } from "./products.js";
 import { readFavorites, writeFavorites } from "./favorites.js";
 
 const collection = document.body.dataset.collection;
 const productGrid = document.querySelector("#product-grid");
 const searchInput = document.querySelector("#catalog-search");
 const categorySelect = document.querySelector("#category-filter");
+const categoryTabs = document.querySelector("#category-tabs");
 const favoritesButton = document.querySelector("#show-favorites");
 const favoriteCount = document.querySelector("#favorite-count");
 const resultCount = document.querySelector("#filter-count");
 const emptyState = document.querySelector("#product-empty");
+
 const currency = new Intl.NumberFormat("fr-CI", {
   style: "currency",
   currency: "XOF",
   maximumFractionDigits: 0
 });
+
 const favorites = readFavorites(PRODUCTS);
 let favoritesOnly = false;
+let activeCategory = "all";
 
 const visualClasses = ["visual-stone", "visual-fog", "visual-slate", "visual-ash"];
 
-function createProductCard(product, index) {
-  const card = document.createElement("article");
-  card.className = "product-card";
+/**
+ * Live BlackMoneyStacks-style promo countdown timer (H / MIN / SEC).
+ */
+function initPromoCountdown() {
+  const hoursEl = document.querySelector("#countdown-hours");
+  const minsEl = document.querySelector("#countdown-mins");
+  const secsEl = document.querySelector("#countdown-secs");
+  if (!hoursEl || !minsEl || !secsEl) return;
 
-  const isPhoto = !product.image.endsWith(".svg");
-  const visual = document.createElement("div");
-  visual.className = `product-visual ${visualClasses[index % visualClasses.length]}${isPhoto ? " is-photo" : ""}`;
-  if (isPhoto) {
-    visual.style.background = product.color;
-  } else {
-    visual.style.backgroundColor = product.color;
+  const storageKey = "yodo_drop_deadline_v1";
+  let deadline = Number(window.localStorage?.getItem(storageKey) || 0);
+  if (!deadline || deadline <= Date.now()) {
+    deadline = Date.now() + (21 * 3600 + 17 * 60 + 45) * 1000;
+    try {
+      window.localStorage?.setItem(storageKey, String(deadline));
+    } catch {}
   }
 
-  const tag = document.createElement("span");
-  tag.className = "product-tag";
-  tag.textContent = product.badge || "STUDIO YODO";
-  const number = document.createElement("span");
-  number.className = "visual-number";
-  number.textContent = `Y-${String(index + 1).padStart(2, "0")}`;
+  const tick = () => {
+    let remaining = Math.max(0, Math.floor((deadline - Date.now()) / 1000));
+    if (remaining === 0) {
+      deadline = Date.now() + 24 * 3600 * 1000;
+      remaining = 24 * 3600;
+    }
+    const h = Math.floor(remaining / 3600);
+    const m = Math.floor((remaining % 3600) / 60);
+    const s = remaining % 60;
+    hoursEl.textContent = String(h).padStart(2, "0");
+    minsEl.textContent = String(m).padStart(2, "0");
+    secsEl.textContent = String(s).padStart(2, "0");
+  };
+
+  tick();
+  window.setInterval(tick, 1000);
+}
+
+function createProductCard(product, index) {
+  const card = document.createElement("article");
+  card.className = "product-card bms-card";
+
+  const isPhoto = !product.image.endsWith(".svg");
+  const visual = document.createElement("a");
+  visual.href = `produit.html?id=${encodeURIComponent(product.id)}`;
+  visual.className = `product-visual ${visualClasses[index % visualClasses.length]}${isPhoto ? " is-photo" : ""}`;
+  visual.style.backgroundColor = product.color;
+  visual.setAttribute("aria-label", `Voir ${product.name}`);
+
+  if (product.badge) {
+    const tag = document.createElement("span");
+    tag.className = "product-tag bms-pill";
+    tag.textContent = product.badge;
+    visual.append(tag);
+  }
 
   const favorite = document.createElement("button");
   favorite.className = "favorite-button";
@@ -55,67 +93,216 @@ function createProductCard(product, index) {
   art.alt = `${product.name} — ${product.detail}`;
   art.loading = "lazy";
   model.append(art);
-  visual.append(tag, number, favorite, model);
+  visual.append(model);
 
-  const info = document.createElement("div");
-  info.className = "product-info";
-  const copy = document.createElement("div");
+  const visualWrap = document.createElement("div");
+  visualWrap.className = "bms-visual-wrap";
+  visualWrap.append(visual, favorite);
+
+  const info = document.createElement("a");
+  info.className = "bms-info";
+  info.href = `produit.html?id=${encodeURIComponent(product.id)}`;
+
   const name = document.createElement("h3");
   name.textContent = product.name;
-  const detail = document.createElement("p");
-  detail.textContent = product.detail;
-  copy.append(name, detail);
-  const price = document.createElement("span");
-  price.textContent = currency.format(product.price);
-  info.append(copy, price);
 
-  const link = document.createElement("a");
-  link.className = "product-detail-link";
-  link.href = `produit.html?id=${encodeURIComponent(product.id)}`;
-  link.append(document.createTextNode("Choisir les options "));
-  const arrow = document.createElement("span");
-  arrow.setAttribute("aria-hidden", "true");
-  arrow.textContent = "↗";
-  link.append(arrow);
+  const prices = document.createElement("div");
+  prices.className = "bms-price-row";
+  if (product.oldPrice && product.oldPrice > product.price) {
+    const oldP = document.createElement("s");
+    oldP.className = "bms-old-price";
+    oldP.textContent = currency.format(product.oldPrice);
+    prices.append(oldP);
+  }
+  const currentP = document.createElement("span");
+  currentP.className = "bms-current-price";
+  currentP.textContent = currency.format(product.price);
+  prices.append(currentP);
 
-  card.append(visual, info, link);
+  if (product.colors?.length > 1) {
+    const dots = document.createElement("div");
+    dots.className = "bms-swatch-preview";
+    product.colors.slice(0, 4).forEach((c) => {
+      const dot = document.createElement("span");
+      dot.className = "bms-dot";
+      dot.style.backgroundColor = c.value;
+      dot.title = c.name;
+      dots.append(dot);
+    });
+    info.append(name, prices, dots);
+  } else {
+    info.append(name, prices);
+  }
+
+  card.append(visualWrap, info);
   return card;
 }
 
+function getCollectionProducts() {
+  return Object.values(PRODUCTS).filter((product) =>
+    collection === "all"
+      || (collection === "streetwear" ? product.streetwear : product.audiences.includes(collection))
+  );
+}
+
 function getVisibleProducts() {
-  const query = searchInput.value.trim().toLocaleLowerCase("fr");
-  const category = categorySelect.value;
-  return Object.values(PRODUCTS).filter((product) => {
-    const matchesCollection = collection === "all"
-      || (collection === "streetwear" ? product.streetwear : product.audiences.includes(collection));
-    const matchesCategory = category === "all" || product.category === category;
+  const query = (searchInput?.value || "").trim().toLocaleLowerCase("fr");
+  const category = activeCategory;
+  return getCollectionProducts().filter((product) => {
+    const matchesCategory = category === "all"
+      || product.category === category
+      || (category === "promo" && Boolean(product.oldPrice));
     const matchesSearch = `${product.name} ${product.detail} ${product.category}`
       .toLocaleLowerCase("fr")
       .includes(query);
-    return matchesCollection && matchesCategory && matchesSearch
+    return matchesCategory && matchesSearch
       && (!favoritesOnly || favorites.has(product.id));
   });
 }
 
-function render() {
-  const visibleProducts = getVisibleProducts();
-  productGrid.replaceChildren(...visibleProducts.map(createProductCard));
-  favoriteCount.textContent = String(favorites.size);
-  resultCount.textContent = `${visibleProducts.length} pièce${visibleProducts.length === 1 ? "" : "s"} en collection`;
-  emptyState.hidden = visibleProducts.length > 0;
+function updateTabCounts() {
+  if (!categoryTabs) return;
+  const base = getCollectionProducts();
+  const counts = {
+    all: base.length,
+    tshirt: base.filter((p) => p.category === "tshirt").length,
+    longsleeve: base.filter((p) => p.category === "longsleeve").length,
+    promo: base.filter((p) => Boolean(p.oldPrice)).length
+  };
+  const labels = {
+    all: "TOUT VOIR",
+    tshirt: "T-SHIRTS",
+    longsleeve: "MANCHES LONGUES",
+    promo: "PROMO"
+  };
+  categoryTabs.querySelectorAll("[data-category]").forEach((tab) => {
+    const cat = tab.dataset.category;
+    if (labels[cat] !== undefined && counts[cat] !== undefined) {
+      tab.textContent = `${labels[cat]} (${counts[cat]})`;
+    }
+  });
 }
 
-searchInput.addEventListener("input", render);
-categorySelect.addEventListener("change", render);
-favoritesButton.addEventListener("click", () => {
+function syncCategoryUI() {
+  if (categorySelect && categorySelect.value !== activeCategory) {
+    categorySelect.value = activeCategory;
+  }
+  if (categoryTabs) {
+    categoryTabs.querySelectorAll("[data-category]").forEach((tab) => {
+      const active = !favoritesOnly && tab.dataset.category === activeCategory;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", String(active));
+    });
+  }
+}
+
+function renderGroupedSections(visibleProducts) {
+  productGrid.classList.add("is-grouped");
+  const fragments = [];
+
+  CATEGORY_ORDER.forEach((catId) => {
+    const items = visibleProducts.filter((p) => p.category === catId);
+    if (!items.length) return;
+
+    const meta = CATEGORY_META[catId] || { label: catId, kicker: "" };
+    const section = document.createElement("section");
+    section.className = "catalog-category-section";
+    section.setAttribute("aria-label", meta.label);
+
+    const header = document.createElement("div");
+    header.className = "catalog-category-header";
+    const titleWrap = document.createElement("div");
+    const h2 = document.createElement("h2");
+    h2.textContent = meta.label;
+    titleWrap.append(h2);
+    if (meta.kicker) {
+      const sub = document.createElement("p");
+      sub.textContent = meta.kicker;
+      titleWrap.append(sub);
+    }
+
+    const metaRight = document.createElement("div");
+    metaRight.className = "catalog-category-actions";
+    const countBadge = document.createElement("span");
+    countBadge.className = "catalog-category-count";
+    countBadge.textContent = `${items.length} PIÈCE${items.length === 1 ? "" : "S"}`;
+    const filterLink = document.createElement("button");
+    filterLink.type = "button";
+    filterLink.className = "catalog-category-only";
+    filterLink.textContent = "Voir uniquement →";
+    filterLink.addEventListener("click", () => {
+      favoritesOnly = false;
+      favoritesButton?.setAttribute("aria-pressed", "false");
+      favoritesButton?.classList.remove("is-active");
+      activeCategory = catId;
+      render();
+      categoryTabs?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+    metaRight.append(countBadge, filterLink);
+
+    header.append(titleWrap, metaRight);
+
+    const grid = document.createElement("div");
+    grid.className = "product-grid bms-grid";
+    grid.append(...items.map(createProductCard));
+
+    section.append(header, grid);
+    fragments.push(section);
+  });
+
+  productGrid.replaceChildren(...fragments);
+}
+
+function render() {
+  const visibleProducts = getVisibleProducts();
+  updateTabCounts();
+
+  const shouldGroup = !favoritesOnly && activeCategory === "all";
+  if (shouldGroup && visibleProducts.length > 0) {
+    renderGroupedSections(visibleProducts);
+  } else {
+    productGrid.classList.remove("is-grouped");
+    productGrid.replaceChildren(...visibleProducts.map(createProductCard));
+  }
+
+  if (favoriteCount) favoriteCount.textContent = String(favorites.size);
+  resultCount.textContent = `${visibleProducts.length} PRODUIT${visibleProducts.length === 1 ? "" : "S"}`;
+  emptyState.hidden = visibleProducts.length > 0;
+  syncCategoryUI();
+}
+
+searchInput?.addEventListener("input", render);
+
+categorySelect?.addEventListener("change", () => {
+  favoritesOnly = false;
+  favoritesButton?.setAttribute("aria-pressed", "false");
+  favoritesButton?.classList.remove("is-active");
+  activeCategory = categorySelect.value;
+  render();
+});
+
+categoryTabs?.addEventListener("click", (event) => {
+  const tab = event.target.closest("[data-category]");
+  if (!tab) return;
+  favoritesOnly = false;
+  favoritesButton?.setAttribute("aria-pressed", "false");
+  favoritesButton?.classList.remove("is-active");
+  activeCategory = tab.dataset.category;
+  render();
+});
+
+favoritesButton?.addEventListener("click", () => {
   favoritesOnly = !favoritesOnly;
   favoritesButton.setAttribute("aria-pressed", String(favoritesOnly));
   favoritesButton.classList.toggle("is-active", favoritesOnly);
   render();
 });
+
 productGrid.addEventListener("click", (event) => {
   const button = event.target.closest("[data-favorite]");
   if (!button) return;
+  event.preventDefault();
+  event.stopPropagation();
 
   const productId = button.dataset.favorite;
   const wasFavorite = favorites.has(productId);
@@ -131,4 +318,5 @@ productGrid.addEventListener("click", (event) => {
   render();
 });
 
+initPromoCountdown();
 render();

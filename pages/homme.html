@@ -4,20 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#FFFFFF">
-    <meta name="description" content="Découvrez la sélection Homme YODO : hoodies noirs à détails rouges, pantalons cargo streetwear et sneakers blanches.">
+    <meta name="description" content="Collection Homme YODO : T-shirts et manches longues édition studio.">
     <title>Homme - YODO</title>
     <link rel="stylesheet" href="../style.css">
   </head>
   <body data-collection="homme">
-    <div class="announcement">YODO - Showroom Streetwear <span aria-hidden="true">✳</span> Sélection Homme · Édition Studio</div>
+    <div class="announcement">YODO Clothing Brand <span aria-hidden="true">✳</span> Sélection Homme · Édition 2026</div>
     <header class="site-header">
-      <a class="brand" href="../index.html" aria-label="YODO, accueil"><img src="../logo.jpeg" alt="YODO"></a>
+      <a class="brand" href="../index.html" aria-label="YODO, accueil"><img src="../assets/images/logo-yodo-brand.jpg" alt="YODO"></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
       <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
         <a href="boutique.html">Boutique</a>
         <a href="homme.html" aria-current="page">Homme</a>
         <a href="femme.html">Femme</a>
-        <a href="streetwear.html">Streetwear</a>
         <a href="../index.html#histoire">À propos</a>
       </nav>
       <a class="cart-trigger" href="panier.html" data-cart-link aria-label="Ouvrir le panier, 0 article">
@@ -30,41 +29,48 @@
     </header>
     <main class="catalog-page section-wrap">
       <a class="back-link" href="boutique.html">← Boutique</a>
-      <section class="collection-hero-banner" aria-labelledby="homme-title">
-        <div class="collection-banner-copy">
-          <p class="section-kicker">YODO / Vestiaire Masculin · Showroom 01</p>
-          <h1 id="homme-title">Collection<br><span>Homme.</span></h1>
-          <p>Inspirée de notre silhouette signature sur podium chromé : hoodies noirs 520g à liserés rouges <code class="hex-badge">#E51F35</code>, pantalons cargo streetwear et sneakers blanches de luxe.</p>
-        </div>
-        <div class="collection-banner-media">
-          <img src="../assets/images/lookbook-men.jpg" alt="Silhouette masculine YODO en hoodie noir à détails rouges, pantalon cargo streetwear et sneakers blanches">
-          <span class="banner-caption">SILHOUETTE HOMME · PODIUM CHROMÉ</span>
+      <section class="editorial-hero-banner editorial-hero-compact" aria-labelledby="homme-title">
+        <img class="editorial-hero-bg" src="../assets/images/lookbook-yodo-models.jpg" alt="Collection Homme YODO">
+        <div class="editorial-hero-scrim" aria-hidden="true"></div>
+        <div class="editorial-hero-content">
+          <div class="editorial-hero-left">
+            <h1 id="homme-title">Collection<br><span>Homme.</span></h1>
+          </div>
         </div>
       </section>
-      <div class="catalog-controls">
-        <label class="catalog-search" for="catalog-search">Rechercher un article
-          <input id="catalog-search" type="search" placeholder="Nom, coupe ou matière" autocomplete="off">
+      <section class="bms-promo-banner" aria-label="Offre en cours">
+        <div class="bms-promo-copy">
+          <strong>YODO DROP · HOMME</strong>
+          <span>T-SHIRTS 10 000 F · MANCHES LONGUES 15 000 F</span>
+        </div>
+        <div class="bms-countdown" aria-label="Temps restant">
+          <div><strong id="countdown-hours">21</strong><span>H</span></div>
+          <div><strong id="countdown-mins">17</strong><span>MIN</span></div>
+          <div><strong id="countdown-secs">07</strong><span>SEC</span></div>
+        </div>
+      </section>
+      <nav class="bms-category-tabs" id="category-tabs" role="tablist" aria-label="Catégories">
+        <button type="button" role="tab" class="bms-tab is-active" data-category="all" aria-selected="true">TOUT VOIR</button>
+        <button type="button" role="tab" class="bms-tab" data-category="tshirt" aria-selected="false">T-SHIRTS</button>
+        <button type="button" role="tab" class="bms-tab" data-category="longsleeve" aria-selected="false">MANCHES LONGUES</button>
+        <button type="button" role="tab" class="bms-tab" data-category="promo" aria-selected="false">PROMO</button>
+        <button type="button" class="bms-tab bms-tab-fav" id="show-favorites" aria-pressed="false">FAVORIS (<span id="favorite-count">0</span>)</button>
+      </nav>
+      <div class="bms-toolbar">
+        <label class="bms-search-inline" for="catalog-search">
+          <span class="sr-only">Rechercher un article</span>
+          <input id="catalog-search" type="search" placeholder="Rechercher une pièce…" autocomplete="off">
         </label>
-        <label class="catalog-category" for="category-filter">Catégorie
-          <select id="category-filter">
-            <option value="all">Toutes les catégories</option>
-            <option value="haut">Hauts</option>
-            <option value="veste">Vestes</option>
-            <option value="bas">Bas</option>
-            <option value="accessoire">Sneakers &amp; Accessoires</option>
-          </select>
-        </label>
-        <button class="filter-button favorites-filter" id="show-favorites" type="button" aria-pressed="false">Favoris <span id="favorite-count">0</span></button>
+        <p id="filter-count" class="bms-count" aria-live="polite"></p>
       </div>
-      <div class="catalog-result-line"><p id="filter-count" aria-live="polite"></p><p>Tarifs Showroom · F CFA</p></div>
-      <div class="product-grid" id="product-grid"></div>
+      <div class="product-grid bms-grid" id="product-grid"></div>
       <p class="product-empty" id="product-empty" role="status" hidden>Aucun article ne correspond à ces critères. Modifiez la recherche ou les filtres.</p>
-      <p class="catalog-demo-note">Pièces et variantes disponibles en édition limitée. Disponibilité et expédition confirmées sur WhatsApp.</p>
+      <p class="catalog-demo-note">Pièces disponibles en édition limitée. Disponibilité et expédition confirmées sur WhatsApp.</p>
     </main>
     <footer class="site-footer">
       <a class="footer-brand" href="../index.html" aria-label="YODO, retour à l’accueil">YODO<span>®</span></a>
-      <p>Votre boutique multimarque.</p>
-      <div class="footer-links"><a href="boutique.html">La boutique</a><a href="../index.html#histoire">Nos marques</a><a href="panier.html">Panier</a></div>
+      <p>YODO Clothing Brand.</p>
+      <div class="footer-links"><a href="boutique.html">La boutique</a><a href="homme.html">Homme</a><a href="femme.html">Femme</a><a href="panier.html">Panier</a></div>
       <small>© YODO 2026</small>
     </footer>
     <script type="module" src="../js/site-header.js"></script>

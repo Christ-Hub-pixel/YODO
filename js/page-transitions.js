@@ -1,4 +1,5 @@
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
 const overlay = document.createElement("div");
 overlay.className = "page-transition";
 overlay.setAttribute("role", "status");
@@ -7,7 +8,6 @@ overlay.innerHTML = `
   <div class="page-transition-mark" aria-hidden="true">
     <span>Y</span>
   </div>
-  <p>YODO</p>
 `;
 document.body.append(overlay);
 
