@@ -281,21 +281,21 @@ export async function initThreeScene() {
     console.warn("RoomEnvironment IBL initialisation fallback:", envError);
   }
 
-  // Dramatic Noir / Blanc / Bleu + subtle Rouge Chrome Studio Lighting
-  const keyLight = new THREE.DirectionalLight(0xffffff, 3.6);
-  keyLight.position.set(-2.5, 3.8, 4.5);
+  // Dramatic Luxury Monochrome Chrome + subtle YODO Red Rim Lighting
+  const keyLight = new THREE.DirectionalLight(0xffffff, 4.0);
+  keyLight.position.set(-2.6, 3.8, 4.6);
   scene.add(keyLight);
 
-  const rimLightRight = new THREE.DirectionalLight(0x1652f0, 3.4);
-  rimLightRight.position.set(4.0, 2.2, -2.5);
+  const rimLightRight = new THREE.DirectionalLight(0xffffff, 3.2);
+  rimLightRight.position.set(4.0, 2.4, -2.5);
   scene.add(rimLightRight);
 
-  const rimLightLeft = new THREE.DirectionalLight(0xe51f35, 1.5);
-  rimLightLeft.position.set(-4.2, -1.5, -2.2);
+  const rimLightLeft = new THREE.DirectionalLight(0xe51f35, 2.0);
+  rimLightLeft.position.set(-4.2, -1.2, -2.2);
   scene.add(rimLightLeft);
 
-  const accentGlowLight = new THREE.PointLight(0x6ea0ff, 2.6, 10);
-  accentGlowLight.position.set(0.2, 0.8, 3.2);
+  const accentGlowLight = new THREE.PointLight(0xffffff, 2.8, 10);
+  accentGlowLight.position.set(0.2, 0.8, 3.4);
   scene.add(accentGlowLight);
 
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.35);
